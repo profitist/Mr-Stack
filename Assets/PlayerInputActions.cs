@@ -84,7 +84,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""311b33cf-106b-4a76-8835-a438ac578e32"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",

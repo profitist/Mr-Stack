@@ -24,11 +24,10 @@ public class Player : MonoBehaviour
         if (isGrounded && GameInput.Instance.IsJump())
         {
             Debug.Log("Jump");
-            
+            rb.velocity = new Vector2(rb.linearVelocity.x, jumpForce); 
             isGrounded = false;
             return;
         }
-        rb.velocity = new Vector2(rb.linearVelocity.x, jumpForce); 
         var movementVector = GameInput.Instance.GetMovementVector();
         Debug.Log("Move");
         movementVector = movementVector.normalized;
