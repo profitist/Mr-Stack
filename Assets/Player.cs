@@ -3,13 +3,15 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Vector2 = UnityEngine.Vector2;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float movingSpeed = 10f;
-    [SerializeField] private float jumpForce = 30f;
+    [SerializeField] private float movingSpeed = 5f;
+    [SerializeField] private float jumpForce = 300f;
     
     private bool isGrounded;
+    private bool isJumping;
     
     private Rigidbody2D rb;
 
@@ -21,17 +23,14 @@ public class Player : MonoBehaviour
     [Obsolete("Obsolete")]
     private void FixedUpdate()
     {
-        if (isGrounded && GameInput.Instance.IsJump())
+        if (isGrounded && GameInput.Instance.IsJump() && !isJumping)
         {
-            Debug.Log("Jump");
-            rb.velocity = new Vector2(rb.linearVelocity.x, jumpForce); 
-            isGrounded = false;
-            return;
+            rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
+            isJumping = true;
         }
         var movementVector = GameInput.Instance.GetMovementVector();
-        Debug.Log("Move");
         movementVector = movementVector.normalized;
-        rb.MovePosition(rb.position + movementVector * (movingSpeed * Time.fixedDeltaTime));
+        rb.velocity = new Vector2(movementVector.x * movingSpeed,rb.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,6 +39,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Collision");
             isGrounded = true;
+            isJumping = false;
         }
     }
     
