@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Jump");
             rb.velocity = new Vector2(rb.linearVelocity.x, jumpForce); 
-            isGrounded = false;
             return;
         }
         var movementVector = GameInput.Instance.GetMovementVector();
