@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DinoSprites - mort_0: 6257046027232108077
+      DinoSprites - mort_1: -7125036645668570733
+      DinoSprites - mort_10: 9125498157706366390
+      DinoSprites - mort_11: 5812355154914232366
+      DinoSprites - mort_12: 3558796315206722773
+      DinoSprites - mort_13: -2678000645872940547
+      DinoSprites - mort_14: -230669603557627360
+      DinoSprites - mort_15: -2519562820075941236
+      DinoSprites - mort_16: -7045305757555629346
+      DinoSprites - mort_17: 4816921100374274480
+      DinoSprites - mort_18: 288819550490885534
+      DinoSprites - mort_19: 8201957625968324575
+      DinoSprites - mort_2: -8286560987708172065
+      DinoSprites - mort_20: 7258251685931216535
+      DinoSprites - mort_21: 7086923684946535517
+      DinoSprites - mort_22: 1133495388219020444
+      DinoSprites - mort_23: -756122797066178725
+      DinoSprites - mort_3: -1100318611340786188
+      DinoSprites - mort_4: -9090256856807665732
+      DinoSprites - mort_5: -5875646046826985496
+      DinoSprites - mort_6: -4757027935454551482
+      DinoSprites - mort_7: 747901297976196677
+      DinoSprites - mort_8: -8799713894660558535
+      DinoSprites - mort_9: -3936616637813362086
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
