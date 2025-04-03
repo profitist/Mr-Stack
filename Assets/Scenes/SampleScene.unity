@@ -685,10 +685,7 @@ GameObject:
   - component: {fileID: 838766078}
   - component: {fileID: 838766079}
   - component: {fileID: 838766080}
-<<<<<<< HEAD
-=======
   - component: {fileID: 838766081}
->>>>>>> origin/main
   m_Layer: 0
   m_Name: PlayerVisual
   m_TagString: Untagged
@@ -778,8 +775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60a650222934b768a08fc8fe5c35bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
 --- !u!95 &838766081
 Animator:
   serializedVersion: 7
@@ -802,7 +797,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
->>>>>>> origin/main
 --- !u!1 &1070735591
 GameObject:
   m_ObjectHideFlags: 0
