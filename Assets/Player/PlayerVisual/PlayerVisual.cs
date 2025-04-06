@@ -18,7 +18,7 @@ public class PlayerVisual : MonoBehaviour
     private void AdjustPlayerFacingDirection()
     {
         var direction = GameInput.Instance.GetMovementVector();
-        if (direction == Vector2.zero)
+        if (direction.x == 0)
             return;
         _spriteRenderer.flipX = direction.x <= 0;
     }
