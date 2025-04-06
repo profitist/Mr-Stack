@@ -509,7 +509,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Box_asset_10bucks_0: -1071436095429195012
+      Box_asset_10bucks_1: 425046907308004874
+      Box_asset_10bucks_10: -47819458912464752
+      Box_asset_10bucks_11: 3509222304766332362
+      Box_asset_10bucks_12: -7305490725057851813
+      Box_asset_10bucks_13: 9024686972592876495
+      Box_asset_10bucks_14: 5748830253224917555
+      Box_asset_10bucks_15: -6564387549326833457
+      Box_asset_10bucks_2: 2278364289016313736
+      Box_asset_10bucks_3: -131028296848997310
+      Box_asset_10bucks_4: 8091688850095665369
+      Box_asset_10bucks_5: 4061447221727632408
+      Box_asset_10bucks_6: 3503915926362313629
+      Box_asset_10bucks_7: 7764142002233346388
+      Box_asset_10bucks_8: 4702869863649229957
+      Box_asset_10bucks_9: 4411895294762322795
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
