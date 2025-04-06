@@ -10,23 +10,26 @@ public class Player : MonoBehaviour
     [SerializeField] private float movingSpeed = 5f;
     [SerializeField] private float jumpForce = 300f;
     
-    private bool isGrounded;
-    private bool isJumping;
-    
+    public bool IsGrounded { get; private set; }
+    public bool IsJumping { get; private set; }
+    public bool IsRunning { get; private set; }
+    public static Player Instance { get; private set; }
     private Rigidbody2D rb;
 
     private void Awake()
     {
+        Instance = this;
         rb = GetComponent<Rigidbody2D>();
     }
     
     [Obsolete("Obsolete")]
     private void FixedUpdate()
     {
-        if (isGrounded && GameInput.Instance.IsJump() && !isJumping && Math.Abs(rb.velocity.y) <= 1e-2)
+        IsRunning = Math.Abs(rb.velocity.x) > 1e-3 && !IsJumping;
+        if (GameInput.Instance.IsJump() && !IsJumping && Math.Abs(rb.velocity.y) <= 1e-2)
         {
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
-            isJumping = true;
+            IsJumping = true;
         }
         var movementVector = GameInput.Instance.GetMovementVector();
         movementVector = movementVector.normalized;
@@ -38,8 +41,7 @@ public class Player : MonoBehaviour
         if (IsGroundedCollision(collision))
         {
             Debug.Log("Collision");
-            isGrounded = true;
-            isJumping = false;
+            IsJumping = false;
         }
         
     }
@@ -63,7 +65,7 @@ public class Player : MonoBehaviour
         if (IsGroundedCollision(collision))
         {
             Debug.Log("No Collision");
-            isGrounded = false;
+            IsJumping = true;
         }
     }
 }

@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 024111cf364fc43d4afc27e3c327e8a6
+guid: 92affc38a672f40f0861fa28ef23e591
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3668506799915052295
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_0
+      213: -8527442550737655860
+    second: New Piskel (4)_0
   - first:
-      213: -8142226426882784555
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_1
+      213: -1643389817789898457
+    second: New Piskel (4)_1
   - first:
-      213: 2018314574445757159
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_2
+      213: 7211491898151854808
+    second: New Piskel (4)_2
   - first:
-      213: -5114056485796004230
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_3
+      213: -1247501539174927167
+    second: New Piskel (4)_3
   - first:
-      213: 7706361712651660112
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_4
+      213: -4124101759643554855
+    second: New Piskel (4)_4
   - first:
-      213: -2383402457942727409
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_5
+      213: -7534391375593514864
+    second: New Piskel (4)_5
   - first:
-      213: 3400914178209296204
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_6
+      213: -4073575346925975060
+    second: New Piskel (4)_6
   - first:
-      213: 3727415270070090139
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_7
+      213: 8286502397655357771
+    second: New Piskel (4)_7
   - first:
-      213: -5607274210201341122
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_8
+      213: -3301321024560249998
+    second: New Piskel (4)_8
   - first:
-      213: 6941321816807260211
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_9
+      213: -8733975479846638664
+    second: New Piskel (4)_9
   - first:
-      213: 1607996489333711539
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_10
+      213: -6730684948049182345
+    second: New Piskel (4)_10
   - first:
-      213: 499948255785687265
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_11
+      213: 2833280596919193521
+    second: New Piskel (4)_11
   - first:
-      213: 8985569014710609771
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_12
+      213: -1928062235650731949
+    second: New Piskel (4)_12
   - first:
-      213: 3661374514403942629
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_13
+      213: 63842533994128457
+    second: New Piskel (4)_13
   - first:
-      213: 530675886431669008
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_14
+      213: 5381121041272437404
+    second: New Piskel (4)_14
   - first:
-      213: 7778720474881782621
-    second: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_15
+      213: 116196540721533695
+    second: New Piskel (4)_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_0
+      name: New Piskel (4)_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 830
-        width: 212
-        height: 180
+        x: 23
+        y: 831
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f255f68088d61dc0800000000000000
-      internalID: -3668506799915052295
+      spriteID: cc72bb03e2078a980800000000000000
+      internalID: -8527442550737655860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_1
+      name: New Piskel (4)_1
       rect:
         serializedVersion: 2
-        x: 278
-        y: 830
-        width: 212
-        height: 180
+        x: 279
+        y: 831
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d28ad04430010f80800000000000000
-      internalID: -8142226426882784555
+      spriteID: 721a323faa18139e0800000000000000
+      internalID: -1643389817789898457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_2
+      name: New Piskel (4)_2
       rect:
         serializedVersion: 2
-        x: 534
-        y: 830
-        width: 220
-        height: 180
+        x: 535
+        y: 831
+        width: 218
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e245d6796e720c10800000000000000
-      internalID: 2018314574445757159
+      spriteID: 8d2e2f95cad541460800000000000000
+      internalID: 7211491898151854808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_3
+      name: New Piskel (4)_3
       rect:
         serializedVersion: 2
-        x: 790
-        y: 830
-        width: 220
-        height: 180
+        x: 791
+        y: 831
+        width: 218
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7eb8dab8b83709b0800000000000000
-      internalID: -5114056485796004230
+      spriteID: 1c4b9bca5fbffaee0800000000000000
+      internalID: -1247501539174927167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_4
+      name: New Piskel (4)_4
       rect:
         serializedVersion: 2
-        x: 22
-        y: 574
-        width: 220
-        height: 180
+        x: 23
+        y: 575
+        width: 218
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,20 +261,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05be549c52f72fa60800000000000000
-      internalID: 7706361712651660112
+      spriteID: 9dbe1eecc4f34c6c0800000000000000
+      internalID: -4124101759643554855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_5
+      name: New Piskel (4)_5
       rect:
         serializedVersion: 2
-        x: 278
-        y: 574
-        width: 212
-        height: 180
+        x: 279
+        y: 575
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,20 +283,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f05e781a7147ceed0800000000000000
-      internalID: -2383402457942727409
+      spriteID: 0985bfa76f6707790800000000000000
+      internalID: -7534391375593514864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_6
+      name: New Piskel (4)_6
       rect:
         serializedVersion: 2
-        x: 534
-        y: 574
-        width: 212
-        height: 180
+        x: 535
+        y: 575
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4f21cf1d69723f20800000000000000
-      internalID: 3400914178209296204
+      spriteID: ce940b00ec0c777c0800000000000000
+      internalID: -4073575346925975060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_7
+      name: New Piskel (4)_7
       rect:
         serializedVersion: 2
-        x: 790
-        y: 574
-        width: 212
-        height: 180
+        x: 791
+        y: 575
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -327,20 +327,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b99f4ee70707ab330800000000000000
-      internalID: 3727415270070090139
+      spriteID: b499ba2e6029ff270800000000000000
+      internalID: 8286502397655357771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_8
+      name: New Piskel (4)_8
       rect:
         serializedVersion: 2
-        x: 14
-        y: 318
-        width: 220
-        height: 180
+        x: 15
+        y: 319
+        width: 218
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,20 +349,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e337dbe70d5fe22b0800000000000000
-      internalID: -5607274210201341122
+      spriteID: 273ce81f40a5f22d0800000000000000
+      internalID: -3301321024560249998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_9
+      name: New Piskel (4)_9
       rect:
         serializedVersion: 2
-        x: 270
-        y: 318
-        width: 220
-        height: 180
+        x: 271
+        y: 319
+        width: 218
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 330477a6a67845060800000000000000
-      internalID: 6941321816807260211
+      spriteID: 8bbe4ce539faac680800000000000000
+      internalID: -8733975479846638664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_10
+      name: New Piskel (4)_10
       rect:
         serializedVersion: 2
-        x: 526
-        y: 318
-        width: 220
-        height: 180
+        x: 527
+        y: 319
+        width: 218
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,20 +393,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b2afca9940c05610800000000000000
-      internalID: 1607996489333711539
+      spriteID: 771c57053bdc792a0800000000000000
+      internalID: -6730684948049182345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_11
+      name: New Piskel (4)_11
       rect:
         serializedVersion: 2
-        x: 790
-        y: 318
-        width: 212
-        height: 180
+        x: 791
+        y: 319
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,20 +415,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e89e203a4c20f600800000000000000
-      internalID: 499948255785687265
+      spriteID: 1bf006801b5d15720800000000000000
+      internalID: 2833280596919193521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_12
+      name: New Piskel (4)_12
       rect:
         serializedVersion: 2
-        x: 22
-        y: 62
-        width: 212
-        height: 180
+        x: 23
+        y: 63
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,20 +437,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b67259a496723bc70800000000000000
-      internalID: 8985569014710609771
+      spriteID: 350513bac952e35e0800000000000000
+      internalID: -1928062235650731949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_13
+      name: New Piskel (4)_13
       rect:
         serializedVersion: 2
-        x: 278
-        y: 62
-        width: 212
-        height: 180
+        x: 279
+        y: 63
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,20 +459,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e027b8d8b0dfc230800000000000000
-      internalID: 3661374514403942629
+      spriteID: 944e7484270d2e000800000000000000
+      internalID: 63842533994128457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_14
+      name: New Piskel (4)_14
       rect:
         serializedVersion: 2
-        x: 534
-        y: 62
-        width: 212
-        height: 180
+        x: 535
+        y: 63
+        width: 210
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,20 +481,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01b00a538e65d5700800000000000000
-      internalID: 530675886431669008
+      spriteID: c9a7c6e93159daa40800000000000000
+      internalID: 5381121041272437404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2025-04-03 10_26_15-no-bg-preview (carve.photos)_15
+      name: New Piskel (4)_15
       rect:
         serializedVersion: 2
-        x: 790
-        y: 62
-        width: 212
-        height: 188
+        x: 791
+        y: 63
+        width: 210
+        height: 186
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -503,8 +503,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d53f268fe0193fb60800000000000000
-      internalID: 7778720474881782621
+      spriteID: ff216dd5320dc9100800000000000000
+      internalID: 116196540721533695
       vertices: []
       indices: 
       edges: []
@@ -522,23 +522,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_0: -3668506799915052295
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_1: -8142226426882784555
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_10: 1607996489333711539
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_11: 499948255785687265
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_12: 8985569014710609771
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_13: 3661374514403942629
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_14: 530675886431669008
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_15: 7778720474881782621
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_2: 2018314574445757159
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_3: -5114056485796004230
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_4: 7706361712651660112
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_5: -2383402457942727409
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_6: 3400914178209296204
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_7: 3727415270070090139
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_8: -5607274210201341122
-      2025-04-03 10_26_15-no-bg-preview (carve.photos)_9: 6941321816807260211
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

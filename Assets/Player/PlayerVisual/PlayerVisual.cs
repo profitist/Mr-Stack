@@ -18,8 +18,8 @@ public class PlayerVisual : MonoBehaviour
     private void Update()
     {
         AdjustPlayerFacingDirection();
-        _animator.SetBool(isRunning, Player.Instance.isRunning);
-        _animator.SetBool(isJumping, Player.Instance.isJumping);
+        _animator.SetBool(isRunning, Player.Instance.IsRunning);
+        _animator.SetBool(isJumping, Player.Instance.IsJumping);
     }
 
     private void AdjustPlayerFacingDirection()
