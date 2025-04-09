@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     public bool IsRunning { get; private set; }
     public static Player Instance { get; private set; }
     
-    public static Box NearestBox { get; private set; }
+    public GameObject NearestBox { get;  set; }
     
     private Rigidbody2D rb;
 
@@ -59,13 +60,19 @@ public class Player : MonoBehaviour
     private void FindNearestBox()
     {
         var boxCollider = Physics2D.OverlapCircleAll(transform.position, 1)
-            .Where(c => c.gameObject.CompareTag("Box"))
+            .Where(c => c.gameObject.CompareTag("Box") 
+                        && !PlayerBoxHolder.Instance.ActiveBoxes.Contains(c.gameObject))
             .OrderBy(x =>  Vector2.Distance(x.transform.position, transform.position))
             .FirstOrDefault();
         if (boxCollider is not null)
-            NearestBox = boxCollider.gameObject.GetComponent<Box>();
+        {
+            NearestBox = boxCollider.gameObject;
+            Debug.Log("FOUND!");
+        }
+        else
+            NearestBox = default;
     }
-    
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (IsGroundedCollision(collision))

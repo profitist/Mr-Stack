@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
@@ -21,5 +22,9 @@ public class GameInput : MonoBehaviour
     }
 
     public bool IsJump() => playerInputActions.Player.Jump.IsPressed();
+    
+    public bool IsGrabbingBox() => playerInputActions.Player.GrabBox.IsPressed();
+    
+    public bool IsPuttingBox() => playerInputActions.Player.PutBox.IsPressed();
 }
    

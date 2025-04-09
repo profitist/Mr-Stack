@@ -44,6 +44,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""GrabBox"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a1ee98f-29d5-48ce-8427-d5f3801d2025"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PutBox"",
+                    ""type"": ""Button"",
+                    ""id"": ""6737cb4c-5890-474a-b9f4-5fad2be7cbc5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -90,6 +108,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d385f1d-6cc6-41fc-9742-fc014020a806"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GrabBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d72a14a-b931-4d37-8b29-1ef3635de34b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PutBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -100,6 +140,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_GrabBox = m_Player.FindAction("GrabBox", throwIfNotFound: true);
+        m_Player_PutBox = m_Player.FindAction("PutBox", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -168,12 +210,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_GrabBox;
+    private readonly InputAction m_Player_PutBox;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @GrabBox => m_Wrapper.m_Player_GrabBox;
+        public InputAction @PutBox => m_Wrapper.m_Player_PutBox;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -189,6 +235,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @GrabBox.started += instance.OnGrabBox;
+            @GrabBox.performed += instance.OnGrabBox;
+            @GrabBox.canceled += instance.OnGrabBox;
+            @PutBox.started += instance.OnPutBox;
+            @PutBox.performed += instance.OnPutBox;
+            @PutBox.canceled += instance.OnPutBox;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -199,6 +251,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @GrabBox.started -= instance.OnGrabBox;
+            @GrabBox.performed -= instance.OnGrabBox;
+            @GrabBox.canceled -= instance.OnGrabBox;
+            @PutBox.started -= instance.OnPutBox;
+            @PutBox.performed -= instance.OnPutBox;
+            @PutBox.canceled -= instance.OnPutBox;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -220,5 +278,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnGrabBox(InputAction.CallbackContext context);
+        void OnPutBox(InputAction.CallbackContext context);
     }
 }
