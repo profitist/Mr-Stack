@@ -27,11 +27,11 @@ public class Player : MonoBehaviour
     }
     
     [Obsolete("Obsolete")]
-    private void FixedUpdate()
+    private void Update()
     {
         FindNearestBox();
         IsRunning = Math.Abs(rb.velocity.x) > 1e-3 && !IsJumping;
-        if (GameInput.Instance.IsJump() && !IsJumping && Math.Abs(rb.velocity.y) <= 1e-2)
+        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.velocity.y) <= 1e-2)
         {
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
             IsJumping = true;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
     
     private bool IsGroundedCollision(Collision2D collision)
     {
-        return collision.contacts.Any(contact => contact.normal.y >= 1f);
+        return collision.contacts.Any(contact => contact.normal.y >= 0.5f);
     }
 
     private void FindNearestBox()

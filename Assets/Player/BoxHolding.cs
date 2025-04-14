@@ -21,12 +21,12 @@ public class PlayerBoxHolder : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Debug.Log(boxes.Count);
-        if (GameInput.Instance.IsGrabbingBox() && maxBoxCount > boxes.Count && Player.Instance.NearestBox)
+        if (GameInput.Instance.GrabingBox && maxBoxCount > boxes.Count && Player.Instance.NearestBox)
             PickUpBox(Player.Instance.NearestBox);
-        if (GameInput.Instance.IsPuttingBox() && boxes.Count > 0)
+        if (GameInput.Instance.PuttingBox && boxes.Count > 0)
            RemoveBox(boxes.Pop());
         
     }

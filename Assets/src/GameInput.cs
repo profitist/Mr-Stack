@@ -7,6 +7,11 @@ public class GameInput : MonoBehaviour
     private PlayerInputActions playerInputActions;
     
     public static GameInput Instance { get; private set; }
+
+    public bool GrabingBox { get; private set; }
+    public bool PuttingBox { get; private set; }
+    public bool Jumping { get; private set; }
+    
     
     private void Awake()
     {
@@ -20,11 +25,12 @@ public class GameInput : MonoBehaviour
         var inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
         return inputVector;
     }
-
-    public bool IsJump() => playerInputActions.Player.Jump.IsPressed();
     
-    public bool IsGrabbingBox() => playerInputActions.Player.GrabBox.IsPressed();
-    
-    public bool IsPuttingBox() => playerInputActions.Player.PutBox.IsPressed();
+    void Update()
+    {
+        Jumping = playerInputActions.Player.Jump.triggered;
+        GrabingBox = playerInputActions.Player.GrabBox.triggered;
+        PuttingBox = playerInputActions.Player.PutBox.triggered;
+    }
 }
    
