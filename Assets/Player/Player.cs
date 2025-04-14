@@ -36,8 +36,7 @@ public class Player : MonoBehaviour
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
             IsJumping = true;
         }
-        var movementVector = GameInput.Instance.GetMovementVector();
-        movementVector = movementVector.normalized;
+        var movementVector = GameInput.Instance.GetMovementVector().normalized;
         rb.velocity = new Vector2(movementVector.x * movingSpeed, rb.velocity.y);
     }
     
@@ -65,10 +64,7 @@ public class Player : MonoBehaviour
             .OrderBy(x =>  Vector2.Distance(x.transform.position, transform.position))
             .FirstOrDefault();
         if (boxCollider is not null)
-        {
             NearestBox = boxCollider.gameObject;
-            Debug.Log("FOUND!");
-        }
         else
             NearestBox = default;
     }
