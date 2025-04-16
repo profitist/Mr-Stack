@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     
     public bool IsJumping { get; private set; }
     public bool IsRunning { get; private set; }
+    
+    public bool AgainstWall { get; private set; }
 
     public FacingDirection facingDirection { get; private set; }
     public static Player Instance { get; private set; }
@@ -29,23 +31,22 @@ public class Player : MonoBehaviour
         facingDirection = FacingDirection.Right;
     }
     
-    [Obsolete("Obsolete")]
     private void Update()
     {
         FindNearestBox();
-        IsRunning = Math.Abs(rb.velocity.x) > 1e-3 && !IsJumping;
-        if (IsRunning)
+        IsRunning = Math.Abs(rb.linearVelocity.x) > 1e-3 && !IsJumping && !AgainstWall;
+        if (Math.Abs(rb.linearVelocity.x) > 1e-3)
         {
-            facingDirection = (rb.velocity.x > 0) ? FacingDirection.Right: FacingDirection.Left;
+            facingDirection = (rb.linearVelocity.x > 1e-3) ? FacingDirection.Right: FacingDirection.Left;
         }
-        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.velocity.y) <= 1e-2)
+        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.linearVelocity.y) <= 1e-2)
         {
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
             IsJumping = true;
         }
         var movementVector = GameInput.Instance.GetMovementVector();
         movementVector = movementVector.normalized;
-        rb.velocity = new Vector2(movementVector.x * movingSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(movementVector.x * movingSpeed, rb.linearVelocity.y);
     }
     
 
@@ -61,6 +62,8 @@ public class Player : MonoBehaviour
     
     private bool IsGroundedCollision(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = true;
         return collision.contacts.Any(contact => contact.normal.y >= 0.5f);
     }
 
@@ -82,6 +85,8 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = false;
         if (IsGroundedCollision(collision))
         {
             IsJumping = true;

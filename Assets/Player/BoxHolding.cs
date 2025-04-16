@@ -46,6 +46,9 @@ public class PlayerBoxHolder : MonoBehaviour
         if (rb) rb.simulated = false;
         box.transform.SetParent(holdPoint);
         box.transform.localPosition = new Vector3(0, boxes.Count * 1, 0);
+        var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
+        capsuleCollider.offset += new Vector2(0, 0.5f);
+        capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
         ActiveBoxes.Add(box);
         boxes.Push(box);
         
@@ -54,12 +57,15 @@ public class PlayerBoxHolder : MonoBehaviour
     private void RemoveBox(GameObject box)
     {
         wait.Start();
+        var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
+        capsuleCollider.offset -= new Vector2(0, 0.5f);
+        capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
         var vel = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
-        rb.linearVelocity = new Vector2(vel, rb.linearVelocity.y >= 0 ? 2 * rb.linearVelocity.y + 3 : 5);
+        rb.linearVelocity = new Vector2(vel, 6);
         ActiveBoxes.Remove(box);
     }
 }
