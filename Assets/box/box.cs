@@ -5,6 +5,7 @@ public class Box : MonoBehaviour
 {
     public readonly int boxId;
     public readonly BoxTypes boxType;
+    public readonly Rigidbody2D rb; 
 
     public Box(int boxId, BoxTypes boxType)
     {

@@ -14,16 +14,19 @@ public class Player : MonoBehaviour
     
     public bool IsJumping { get; private set; }
     public bool IsRunning { get; private set; }
+
+    public FacingDirection facingDirection { get; private set; }
     public static Player Instance { get; private set; }
     
     public GameObject NearestBox { get;  set; }
     
-    private Rigidbody2D rb;
+    public Rigidbody2D rb{ get; private set; }
 
     private void Awake()
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        facingDirection = FacingDirection.Right;
     }
     
     [Obsolete("Obsolete")]
@@ -31,6 +34,10 @@ public class Player : MonoBehaviour
     {
         FindNearestBox();
         IsRunning = Math.Abs(rb.velocity.x) > 1e-3 && !IsJumping;
+        if (IsRunning)
+        {
+            facingDirection = (rb.velocity.x > 0) ? FacingDirection.Right: FacingDirection.Left;
+        }
         if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.velocity.y) <= 1e-2)
         {
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);

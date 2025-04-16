@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
 {
     private const int maxBoxCount = 3;
     private Stack<GameObject> boxes;
+    private Stopwatch wait = new Stopwatch();
     public HashSet<GameObject> ActiveBoxes { get; private set; }
     public Transform holdPoint;
     public static PlayerBoxHolder Instance { get; private set; }
@@ -21,31 +24,42 @@ public class PlayerBoxHolder : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Debug.Log(boxes.Count);
-        if (GameInput.Instance.GrabingBox && maxBoxCount > boxes.Count && Player.Instance.NearestBox)
+        if (wait.IsRunning && wait.ElapsedMilliseconds >= 500)
+            wait = new Stopwatch();
+        if (GameInput.Instance.GrabingBox && maxBoxCount > boxes.Count && Player.Instance.NearestBox && !wait.IsRunning)
+        {
             PickUpBox(Player.Instance.NearestBox);
-        if (GameInput.Instance.PuttingBox && boxes.Count > 0)
-           RemoveBox(boxes.Pop());
-        
+            Debug.Log(boxes.Count);
+        }
+
+        if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
+            RemoveBox(boxes.Pop());
+
     }
     
     private void PickUpBox(GameObject box)
     {
+        wait.Start();
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = false;
         box.transform.SetParent(holdPoint);
         box.transform.localPosition = new Vector3(0, boxes.Count * 1, 0);
         ActiveBoxes.Add(box);
         boxes.Push(box);
+        
     }
 
     private void RemoveBox(GameObject box)
     {
+        wait.Start();
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
+        var vel = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
+                  + Player.Instance.rb.linearVelocity.x;
+        rb.linearVelocity = new Vector2(vel, rb.linearVelocity.y >= 0 ? 2 * rb.linearVelocity.y + 3 : 5);
         ActiveBoxes.Remove(box);
     }
 }

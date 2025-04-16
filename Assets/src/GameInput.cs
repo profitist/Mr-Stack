@@ -28,9 +28,9 @@ public class GameInput : MonoBehaviour
     
     void Update()
     {
-        Jumping = playerInputActions.Player.Jump.triggered;
-        GrabingBox = playerInputActions.Player.GrabBox.triggered;
-        PuttingBox = playerInputActions.Player.PutBox.triggered;
+        Jumping = playerInputActions.Player.Jump.IsPressed();
+        GrabingBox = playerInputActions.Player.GrabBox.IsPressed();
+        PuttingBox = playerInputActions.Player.PutBox.IsPressed();
     }
 }
    
