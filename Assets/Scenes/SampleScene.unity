@@ -658,8 +658,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1070735592}
   - component: {fileID: 1070735593}
-  - component: {fileID: 1070735595}
   - component: {fileID: 1070735594}
+  - component: {fileID: 1070735595}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -725,8 +725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingSpeed: 5
   jumpForce: 400
---- !u!61 &1070735595
-BoxCollider2D:
+--- !u!70 &1070735595
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -759,18 +759,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.037038088, y: 0.7697683}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.6117339, y: 1.3050634}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.000000029802322, y: 0.7674586}
+  m_Size: {x: 0.66529876, y: 1.2597553}
+  m_Direction: 0
 --- !u!1 &1100886377
 GameObject:
   m_ObjectHideFlags: 0
