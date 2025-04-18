@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        FindNearestBox();
         IsRunning = Math.Abs(rb.linearVelocity.x) > 1e-3 && !IsJumping && !AgainstWall;
         if (Math.Abs(rb.linearVelocity.x) > 1e-3)
         {
@@ -62,27 +61,9 @@ public class Player : MonoBehaviour
     
     private bool IsGroundedCollision(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
-            AgainstWall = true;
         return collision.contacts.Any(contact => contact.normal.y >= 0.5f);
     }
-
-    private void FindNearestBox()
-    {
-        var boxCollider = Physics2D.OverlapCircleAll(transform.position, 1)
-            .Where(c => c.gameObject.CompareTag("Box") 
-                        && !PlayerBoxHolder.Instance.ActiveBoxes.Contains(c.gameObject))
-            .OrderBy(x =>  Vector2.Distance(x.transform.position, transform.position))
-            .FirstOrDefault();
-        if (boxCollider is not null)
-        {
-            NearestBox = boxCollider.gameObject;
-            Debug.Log("FOUND!");
-        }
-        else
-            NearestBox = default;
-    }
-
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
@@ -91,5 +72,11 @@ public class Player : MonoBehaviour
         {
             IsJumping = true;
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = true;
     }
 }
