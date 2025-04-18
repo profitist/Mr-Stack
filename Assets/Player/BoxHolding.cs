@@ -89,7 +89,7 @@ public class PlayerBoxHolder : MonoBehaviour
         var boxCollider = AllBoxes
             .FirstOrDefault(x => !ActiveBoxes.Contains(x) 
                                  && Vector2.Distance(x.transform.position, Player.Instance.transform.position) < 2
-                                 && System.Math.Abs(x.transform.position.y - Player.Instance.transform.position.y) < 0.5f);
+                                 && System.Math.Abs(x.transform.position.y - Player.Instance.transform.position.y) < 1);
         if (boxCollider is not null)
         {
             NearestBox = boxCollider;

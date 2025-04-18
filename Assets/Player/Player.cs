@@ -61,17 +61,22 @@ public class Player : MonoBehaviour
     
     private bool IsGroundedCollision(Collision2D collision)
     {
-        AgainstWall = false;
-        if (collision.gameObject.CompareTag("Wall"))
-            AgainstWall = true;
         return collision.contacts.Any(contact => contact.normal.y >= 0.5f);
     }
     
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = false;
         if (IsGroundedCollision(collision))
         {
             IsJumping = true;
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = true;
     }
 }
