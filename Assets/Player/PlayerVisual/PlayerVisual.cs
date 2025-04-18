@@ -7,6 +7,7 @@ public class PlayerVisual : MonoBehaviour
     private Animator _animator;
     private const string isRunning = "isRunning";
     private const string isJumping = "isJumping";
+
     
     
     private void Awake()
@@ -24,9 +25,6 @@ public class PlayerVisual : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-        var direction = GameInput.Instance.GetMovementVector();
-        if (direction.x == 0)
-            return;
-        _spriteRenderer.flipX = direction.x <= 0;
+            _spriteRenderer.flipX = Player.Instance.facingDirection == FacingDirection.Left;
     }
 }

@@ -14,30 +14,38 @@ public class Player : MonoBehaviour
     
     public bool IsJumping { get; private set; }
     public bool IsRunning { get; private set; }
+    
+    public bool AgainstWall { get; private set; }
+
+    public FacingDirection facingDirection { get; private set; }
     public static Player Instance { get; private set; }
     
     public GameObject NearestBox { get;  set; }
     
-    private Rigidbody2D rb;
+    public Rigidbody2D rb{ get; private set; }
 
     private void Awake()
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        facingDirection = FacingDirection.Right;
     }
     
-    [Obsolete("Obsolete")]
     private void Update()
     {
-        FindNearestBox();
-        IsRunning = Math.Abs(rb.velocity.x) > 1e-3 && !IsJumping;
-        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.velocity.y) <= 1e-2)
+        IsRunning = Math.Abs(rb.linearVelocity.x) > 1e-3 && !IsJumping && !AgainstWall;
+        if (Math.Abs(rb.linearVelocity.x) > 1e-3)
+        {
+            facingDirection = (rb.linearVelocity.x > 1e-3) ? FacingDirection.Right: FacingDirection.Left;
+        }
+        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.linearVelocity.y) <= 1e-2)
         {
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
             IsJumping = true;
         }
-        var movementVector = GameInput.Instance.GetMovementVector().normalized;
-        rb.velocity = new Vector2(movementVector.x * movingSpeed, rb.velocity.y);
+        var movementVector = GameInput.Instance.GetMovementVector();
+        movementVector = movementVector.normalized;
+        rb.linearVelocity = new Vector2(movementVector.x * movingSpeed, rb.linearVelocity.y);
     }
     
 
@@ -55,25 +63,20 @@ public class Player : MonoBehaviour
     {
         return collision.contacts.Any(contact => contact.normal.y >= 0.5f);
     }
-
-    private void FindNearestBox()
-    {
-        var boxCollider = Physics2D.OverlapCircleAll(transform.position, 1)
-            .Where(c => c.gameObject.CompareTag("Box") 
-                        && !PlayerBoxHolder.Instance.ActiveBoxes.Contains(c.gameObject))
-            .OrderBy(x =>  Vector2.Distance(x.transform.position, transform.position))
-            .FirstOrDefault();
-        if (boxCollider is not null)
-            NearestBox = boxCollider.gameObject;
-        else
-            NearestBox = default;
-    }
-
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = false;
         if (IsGroundedCollision(collision))
         {
             IsJumping = true;
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+            AgainstWall = true;
     }
 }

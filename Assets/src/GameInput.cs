@@ -8,7 +8,7 @@ public class GameInput : MonoBehaviour
     
     public static GameInput Instance { get; private set; }
 
-    public bool GrabbingBox { get; private set; }
+    public bool GrabingBox { get; private set; }
     public bool PuttingBox { get; private set; }
     public bool Jumping { get; private set; }
     
@@ -28,9 +28,9 @@ public class GameInput : MonoBehaviour
     
     void Update()
     {
-        Jumping = playerInputActions.Player.Jump.triggered;
-        GrabbingBox = playerInputActions.Player.GrabBox.triggered;
-        PuttingBox = playerInputActions.Player.PutBox.triggered;
+        Jumping = playerInputActions.Player.Jump.IsPressed();
+        GrabingBox = playerInputActions.Player.GrabBox.IsPressed();
+        PuttingBox = playerInputActions.Player.PutBox.IsPressed();
     }
 }
    
