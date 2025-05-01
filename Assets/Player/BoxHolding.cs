@@ -1,10 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Unity.Mathematics.Geometry;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
@@ -12,7 +10,8 @@ public class PlayerBoxHolder : MonoBehaviour
     private const int maxBoxCount = 3;
     private Stack<GameObject> boxes;
     private GameObject NearestBox;
-    private Stopwatch wait = new Stopwatch();
+    private Stopwatch wait = new ();
+    public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
     public List<GameObject> AllBoxes { get; private set; }
     public Transform holdPoint;
@@ -57,6 +56,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box is null)
             return;
         wait.Start();
+        OnPickingBox.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);

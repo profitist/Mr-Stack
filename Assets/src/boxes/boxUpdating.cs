@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class boxUpdating : MonoBehaviour
 {
-    public static event Action<boxUpdating> OnBoxPlacing;
-    
     void Awake()
     {
         
@@ -14,4 +12,5 @@ public class boxUpdating : MonoBehaviour
     {
         
     }
+    
 }

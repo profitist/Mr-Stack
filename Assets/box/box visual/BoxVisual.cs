@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class NewEmptyCSharpScript : MonoBehaviour
+public class BoxVisual: MonoBehaviour
 {
     private Animator animator;
 
