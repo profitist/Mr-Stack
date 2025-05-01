@@ -5,7 +5,8 @@ public class Box : MonoBehaviour
 {
     public readonly int boxId;
     public readonly BoxTypes boxType;
-    public readonly Rigidbody2D rb; 
+    public readonly Rigidbody2D rb;
+    public bool isFinished;
 
     public Box(int boxId, BoxTypes boxType)
     {

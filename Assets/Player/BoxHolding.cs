@@ -22,7 +22,7 @@ public class PlayerBoxHolder : MonoBehaviour
     void Awake()
     {
         AllBoxes = new List<GameObject>();
-        foreach (var collider in CapsuleCollider2D.FindObjectsByType<GameObject>(default))
+        foreach (var collider in FindObjectsByType<GameObject>(default))
         {
             if (collider.CompareTag("Box"))
                 AllBoxes.Add(collider.gameObject);
