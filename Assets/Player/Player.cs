@@ -48,25 +48,15 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(movementVector.x * movingSpeed, rb.linearVelocity.y);
     }
     
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (IsGroundedCollision(collision))
-        {
-            IsJumping = false;
-        }
-        
-    }
     
     private bool IsGroundedCollision(Collision2D collision)
     {
-        return collision.contacts.Any(contact => contact.normal.y >= 0.5f);
+        return collision.contacts.Any(contact => contact.normal.y >= 0.3f);
     }
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Ground") && AgainstWall)
             AgainstWall = false;
         if (IsGroundedCollision(collision))
         {
@@ -76,7 +66,9 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.contacts.Any(contact => contact.normal.y < 0.3f))
             AgainstWall = true;
+        if (IsGroundedCollision(collision))
+            IsJumping = false;
     }
 }

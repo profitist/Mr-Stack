@@ -44,10 +44,8 @@ public class PlayerBoxHolder : MonoBehaviour
             PickUpBox();
             Debug.Log(boxes.Count);
         }
-
         if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
             RemoveBox(boxes.Pop());
-
     }
     
     private void PickUpBox()
@@ -58,6 +56,11 @@ public class PlayerBoxHolder : MonoBehaviour
             return;
         wait.Start();
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
+        var hit = Physics2D.Raycast(Player.Instance.transform.position + new Vector3(0,0.2f,0), Vector2.up, 3 + boxes.Count);
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Ground"))
+        {
+            return;
+        }
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
         var rb = box.GetComponent<Rigidbody2D>();
@@ -78,21 +81,25 @@ public class PlayerBoxHolder : MonoBehaviour
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
-        var vel = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
+        var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
-        rb.linearVelocity = new Vector2(vel, 6);
+        var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
+        rb.linearVelocity = new Vector2(velocityX, velocityY);
         ActiveBoxes.Remove(box);
     }
     
     public void FindNearestBox()
     {
-        var boxCollider = AllBoxes
-            .FirstOrDefault(x => !ActiveBoxes.Contains(x) 
-                                 && Vector2.Distance(x.transform.position, Player.Instance.transform.position) < 2
-                                 && System.Math.Abs(x.transform.position.y - Player.Instance.transform.position.y) < 1);
-        if (boxCollider is not null)
+        GameObject currentBox = default;
+        var collision = Player.Instance.GetComponent<CapsuleCollider2D>();
+        foreach (var box in AllBoxes)
         {
-            NearestBox = boxCollider;
+            if (!ActiveBoxes.Contains(box) && collision.IsTouching(box.GetComponent<BoxCollider2D>()))
+                currentBox = box;
+        }
+        if (currentBox is not null)
+        {
+            NearestBox = currentBox;
             Debug.Log("FOUND!");
         }
         else
