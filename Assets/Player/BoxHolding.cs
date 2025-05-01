@@ -46,7 +46,6 @@ public class PlayerBoxHolder : MonoBehaviour
 
         if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
             RemoveBox(boxes.Pop());
-
     }
     
     private void PickUpBox()
@@ -56,7 +55,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box is null)
             return;
         wait.Start();
-        OnPickingBox.Invoke(Instance);
+        OnPickingBox?.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
@@ -84,7 +83,7 @@ public class PlayerBoxHolder : MonoBehaviour
         ActiveBoxes.Remove(box);
     }
     
-    public void FindNearestBox()
+    private void FindNearestBox()
     {
         var boxCollider = AllBoxes
             .FirstOrDefault(x => !ActiveBoxes.Contains(x) 

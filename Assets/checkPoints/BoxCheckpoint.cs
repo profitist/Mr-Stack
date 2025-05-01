@@ -19,8 +19,6 @@ public class BoxCheckpoint : MonoBehaviour
             var cp = other.GetComponent<BoxCollider2D>();
             if (rb != null)
             {
-                rb.linearVelocity = Vector2.zero;
-                rb.simulated = false;
                 cp.enabled = false;
             }
             filled = true;
@@ -28,7 +26,6 @@ public class BoxCheckpoint : MonoBehaviour
             PlayerBoxHolder.Instance.ActiveBoxes.Remove(other.gameObject);
             PlayerBoxHolder.Instance.AllBoxes.Remove(other.gameObject);
             other.tag = "decoration";
-            other.transform.position = holdPoint.position;
         }
     }
 }

@@ -11,6 +11,8 @@ public class SmokePuff : MonoBehaviour
     private void OnEnable()
     {
         PlayerBoxHolder.OnPickingBox += OnBoxPlacing;
+        if (PlayerBoxHolder.Instance != null)
+            OnBoxPlacing(PlayerBoxHolder.Instance);
     }
 
     private void OnDisable()
