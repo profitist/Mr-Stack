@@ -9,7 +9,6 @@ using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
 {
-    private const int maxBoxCount = 3;
     private Stack<GameObject> boxes;
     private GameObject NearestBox;
     private Stopwatch wait = new Stopwatch();
@@ -39,7 +38,7 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         if (wait.IsRunning && wait.ElapsedMilliseconds >= 500)
             wait = new Stopwatch();
-        if (GameInput.Instance.GrabingBox && maxBoxCount > boxes.Count && !wait.IsRunning)
+        if (GameInput.Instance.GrabingBox && !wait.IsRunning)
         {
             PickUpBox();
             Debug.Log(boxes.Count);
@@ -56,7 +55,7 @@ public class PlayerBoxHolder : MonoBehaviour
             return;
         wait.Start();
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
-        var hit = Physics2D.Raycast(Player.Instance.transform.position + new Vector3(0,0.2f,0), Vector2.up, 3 + boxes.Count);
+        var hit = Physics2D.Raycast(Player.Instance.transform.position + new Vector3(0,0.2f,0), Vector2.up, 2 + boxes.Count);
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Ground"))
         {
             return;
