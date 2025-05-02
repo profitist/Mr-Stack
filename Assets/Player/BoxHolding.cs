@@ -1,17 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Unity.Mathematics.Geometry;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
 {
     private Stack<GameObject> boxes;
     private GameObject NearestBox;
-    private Stopwatch wait = new Stopwatch();
+    private Stopwatch wait = new ();
+    public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
     public List<GameObject> AllBoxes { get; private set; }
     public Transform holdPoint;
@@ -54,6 +53,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box is null)
             return;
         wait.Start();
+        OnPickingBox?.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         var hit = Physics2D.Raycast(Player.Instance.transform.position + new Vector3(0,0.2f,0), Vector2.up, 2 + boxes.Count);
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Ground"))
@@ -87,7 +87,7 @@ public class PlayerBoxHolder : MonoBehaviour
         ActiveBoxes.Remove(box);
     }
     
-    public void FindNearestBox()
+    private void FindNearestBox()
     {
         GameObject currentBox = default;
         var collision = Player.Instance.GetComponent<CapsuleCollider2D>();
