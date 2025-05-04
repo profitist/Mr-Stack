@@ -1,5 +1,5 @@
 using UnityEngine;
-
+/*
 public class SmokePuff : MonoBehaviour
 {
     private Animator animator;
@@ -31,3 +31,4 @@ public class SmokePuff : MonoBehaviour
         }
     }
 }
+*/

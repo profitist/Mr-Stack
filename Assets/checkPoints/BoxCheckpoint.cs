@@ -1,27 +1,30 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BoxCheckpoint : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     [SerializeField] private Transform holdPoint;
-    [SerializeField] private string targetTag = "Teleportable";
-
-    private bool filled;
+    [SerializeField] private string targetTag = "Box";
+    
+    private bool completed;
     public static event Action<BoxCheckpoint> OnCheckpointFilling;
     
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag(targetTag) && !filled)
+        if (other.CompareTag(targetTag) && !completed && other.gameObject.GetComponent<boxUpdating>().IsGrounded)
         {
             var rb = other.GetComponent<Rigidbody2D>();
             var cp = other.GetComponent<BoxCollider2D>();
             if (rb != null)
             {
                 cp.enabled = false;
+                rb.simulated = false;
             }
-            filled = true;
+            completed = true;
             OnCheckpointFilling?.Invoke(this);
             PlayerBoxHolder.Instance.ActiveBoxes.Remove(other.gameObject);
             PlayerBoxHolder.Instance.AllBoxes.Remove(other.gameObject);

@@ -5479,7 +5479,8 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4027201583995328750, guid: f123522d9a1c940449fcffe0b3f6760d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f123522d9a1c940449fcffe0b3f6760d, type: 3}
@@ -5977,6 +5978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18816794c4e96440b89b8f1e695be139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinished: 0
 --- !u!58 &8645797997786725624
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerVisual : MonoBehaviour
 {
     [SerializeField]
-    public ParticleSystem smokeEffect;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private const string isRunning = "isRunning";
@@ -16,7 +15,6 @@ public class PlayerVisual : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        smokeEffect.Stop();
     }
 
     private void Update()
@@ -38,6 +36,6 @@ public class PlayerVisual : MonoBehaviour
 
     private void OnPickingBox(PlayerBoxHolder boxHolder)
     {
-        smokeEffect.Play();
+
     }
 }
