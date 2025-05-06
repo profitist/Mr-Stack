@@ -24,7 +24,7 @@ public class boxUpdating : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts.Any(n => n.normal.y > 0.6f))
+        if (collision.contacts.Any(n => n.normal.y > 0.6f) && collision.gameObject.CompareTag("Ground"))
             IsGrounded = true;
     }
     private void OnCollisionExit2D(Collision2D collision)
