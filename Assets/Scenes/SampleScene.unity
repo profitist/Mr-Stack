@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 957697241}
   - component: {fileID: 957697240}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Background
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6359,7 +6359,7 @@ GameObject:
   - component: {fileID: 1203463393}
   - component: {fileID: 1203463395}
   - component: {fileID: 1203463394}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DecorationTileMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6375,7 +6375,7 @@ Transform:
   m_GameObject: {fileID: 1203463392}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0.2, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6424,7 +6424,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -6492,7 +6492,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 5, y: 4, z: 0}
+  - first: {x: 3, y: 4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -6589,7 +6589,7 @@ GameObject:
   - component: {fileID: 1499490313}
   - component: {fileID: 1499490312}
   - component: {fileID: 1499490311}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6689,7 +6689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1576670554}
   - component: {fileID: 1576670553}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6778,7 +6778,7 @@ GameObject:
   - component: {fileID: 1628346136}
   - component: {fileID: 1628346138}
   - component: {fileID: 1628346137}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7023,7 +7023,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855053157}
   m_Enabled: 1
-  m_CellSize: {x: 0.64, y: 0.65, z: 0}
+  m_CellSize: {x: 0.65, y: 0.65, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0

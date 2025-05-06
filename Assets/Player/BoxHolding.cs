@@ -60,7 +60,7 @@ public class PlayerBoxHolder : MonoBehaviour
         {
             return;
         }
-        capsuleCollider.offset += new Vector2(0, 0.5f);
+        capsuleCollider.offset += new Vector2(0, 0.51f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = false;
@@ -75,7 +75,7 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         wait.Start();
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
-        capsuleCollider.offset -= new Vector2(0, 0.5f);
+        capsuleCollider.offset -= new Vector2(0, 0.51f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
