@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -55,17 +57,17 @@ public class PlayerBoxHolder : MonoBehaviour
         wait.Start();
         OnPickingBox?.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
-        var hit = Physics2D.Raycast(Player.Instance.transform.position + new Vector3(0,0.2f,0), Vector2.up, 2 + boxes.Count);
+        var hit = Physics2D.Raycast(
+            Player.Instance.transform.position + new Vector3(0,0.2f,0),
+            Vector2.up,
+            2 + boxes.Count);
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Ground"))
         {
             return;
         }
-        capsuleCollider.offset += new Vector2(0, 0.51f);
+        StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
+        capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
-        var rb = box.GetComponent<Rigidbody2D>();
-        if (rb) rb.simulated = false;
-        box.transform.SetParent(holdPoint);
-        box.transform.localPosition = new Vector3(0, boxes.Count * 1, 0);
         ActiveBoxes.Add(box);
         boxes.Push(box);
         
@@ -75,7 +77,7 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         wait.Start();
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
-        capsuleCollider.offset -= new Vector2(0, 0.51f);
+        capsuleCollider.offset -= new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
@@ -85,6 +87,31 @@ public class PlayerBoxHolder : MonoBehaviour
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
         ActiveBoxes.Remove(box);
+    }
+
+    private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)
+    {
+        var start = box.transform.position;
+        var end = holdPoint.position + new Vector3(0, stackHeight * 1, 0);;
+        var duration = 0.5f;
+        var time = 0f;
+        var rb = box.GetComponent<Rigidbody2D>();
+        if (rb) rb.simulated = false;
+        while (time < duration)
+        {
+            var t = time / duration;
+            
+            float height = Mathf.Sin(t * Mathf.PI) * arcHeight;
+            Vector3 currentPosition = Vector3.Lerp(start, end, t);
+            currentPosition.y = Mathf.Lerp(start.y, end.y, t) + height;
+            var xVelocity = Player.Instance.rb.linearVelocity.x;
+            var yVelocity = Player.Instance.rb.linearVelocity.y;
+            box.transform.position = currentPosition + new Vector3(xVelocity, yVelocity, 0);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        box.transform.SetParent(holdPoint);
+        box.transform.localPosition = new Vector3(0, stackHeight, 0);
     }
     
     private void FindNearestBox()

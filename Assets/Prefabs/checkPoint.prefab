@@ -44,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 4996549987092743145}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0131aa6d8c14442f8a63545ac2ae77b8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0897cd413c91045559e92ba645dfcff8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -223,8 +223,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.080973625, y: 0.8058483}
-  m_Radius: 0.7458504
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1.3
 --- !u!114 &4464252168494856530
 MonoBehaviour:
   m_ObjectHideFlags: 0
