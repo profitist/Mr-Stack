@@ -91,25 +91,29 @@ public class PlayerBoxHolder : MonoBehaviour
 
     private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)
     {
-        var start = box.transform.position;
-        var end = holdPoint.position + new Vector3(0, stackHeight * 1, 0);;
         var duration = 0.5f;
         var time = 0f;
+        var start = box.transform.position;
+        var end = holdPoint.position + new Vector3(0, stackHeight * 1, 0);
+        var constVel = 10f;
         var rb = box.GetComponent<Rigidbody2D>();
-        if (rb) rb.simulated = false;
+        var cl = box.GetComponent<BoxCollider2D>();
+        cl.enabled = false;
+        var velX = (end.x - start.x) / duration;
+        if (rb) rb.bodyType = RigidbodyType2D.Kinematic;
         while (time < duration)
         {
             var t = time / duration;
-            
-            float height = Mathf.Sin(t * Mathf.PI) * arcHeight;
-            Vector3 currentPosition = Vector3.Lerp(start, end, t);
-            currentPosition.y = Mathf.Lerp(start.y, end.y, t) + height;
-            var xVelocity = Player.Instance.rb.linearVelocity.x;
-            var yVelocity = Player.Instance.rb.linearVelocity.y;
-            box.transform.position = currentPosition + new Vector3(xVelocity, yVelocity, 0);
+            var verticalSpeed = Mathf.Cos(t * Mathf.PI) * constVel + (end.y - start.y) / duration;
+            rb.linearVelocity =  new Vector2(
+                velX + Player.Instance.rb.linearVelocityX,
+                Player.Instance.rb.linearVelocityY + verticalSpeed);
             time += Time.deltaTime;
             yield return null;
         }
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        cl.enabled = true;
+        rb.simulated = false;
         box.transform.SetParent(holdPoint);
         box.transform.localPosition = new Vector3(0, stackHeight, 0);
     }
