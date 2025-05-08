@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
     public FacingDirection facingDirection { get; private set; }
     public static Player Instance { get; private set; }
     
-    public GameObject NearestBox { get;  set; }
-    
     public Rigidbody2D rb{ get; private set; }
 
     private void Awake()
@@ -33,10 +31,10 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        IsRunning = Math.Abs(rb.linearVelocity.x) > 1e-3 && !IsJumping && !AgainstWall;
-        if (Math.Abs(rb.linearVelocity.x) > 1e-3)
+        IsRunning = !IsJumping && !AgainstWall && GameInput.Instance.GetMovementVector() != Vector2.zero;
+        if (GameInput.Instance.GetMovementVector() != Vector2.zero)
         {
-            facingDirection = (rb.linearVelocity.x > 1e-3) ? FacingDirection.Right: FacingDirection.Left;
+            facingDirection = (GameInput.Instance.GetMovementVector().x > 0 ) ? FacingDirection.Right: FacingDirection.Left;
         }
         if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.linearVelocity.y) <= 1e-2)
         {
