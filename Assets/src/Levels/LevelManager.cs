@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] 
+    private AudioSource successSound;
+    
+    
     private BoxCheckpoint[] items;
 
     private int placeCounter = 0;
@@ -26,6 +30,7 @@ public class LevelManager : MonoBehaviour
 
     private void ActionOnPlacing(BoxCheckpoint checkpoint)
     {
+        successSound.Play();
         placeCounter++;
         if (placeCounter >= items.Length)
             Debug.Log("Все объектны найдены!!!");

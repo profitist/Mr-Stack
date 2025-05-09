@@ -12,6 +12,12 @@ public class PlayerBoxHolder : MonoBehaviour
     private Stack<GameObject> boxes;
     private GameObject NearestBox;
     private Stopwatch wait = new ();
+    
+    [SerializeField]
+    private AudioSource throwingSound;
+    [SerializeField]
+    private AudioSource pickingSound;
+    
     public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
     public List<GameObject> AllBoxes { get; private set; }
@@ -65,6 +71,7 @@ public class PlayerBoxHolder : MonoBehaviour
         {
             return;
         }
+        pickingSound.Play();
         StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
@@ -75,6 +82,7 @@ public class PlayerBoxHolder : MonoBehaviour
 
     private void RemoveBox(GameObject box)
     {
+        throwingSound.Play();
         wait.Start();
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
