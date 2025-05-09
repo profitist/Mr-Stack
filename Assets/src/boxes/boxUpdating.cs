@@ -5,7 +5,7 @@ using UnityEngine;
 public class boxUpdating : MonoBehaviour
 {
     public readonly int boxId;
-    public readonly BoxTypes boxType;
+    public BoxTypes boxType;
     public bool IsGrounded { get; private set; } 
     public Rigidbody2D rb { get; private set; }
     public BoxCollider2D collider { get; private set; }
@@ -17,11 +17,7 @@ public class boxUpdating : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
     }
-
-    public void FixedUpdate()
-    {
-    }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.contacts.Any(n => n.normal.y > 0.6f) && collision.gameObject.CompareTag("Ground"))
