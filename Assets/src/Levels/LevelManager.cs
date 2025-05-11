@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -33,7 +34,9 @@ public class LevelManager : MonoBehaviour
         successSound.Play();
         placeCounter++;
         if (placeCounter >= items.Length)
-            Debug.Log("Все объектны найдены!!!");
+        {
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) %3);
+        }
     }
     
 }

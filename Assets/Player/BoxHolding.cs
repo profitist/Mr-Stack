@@ -18,9 +18,10 @@ public class PlayerBoxHolder : MonoBehaviour
     [SerializeField]
     private AudioSource pickingSound;
     
+    public int heavyBoxesCount;
     public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
-    public List<GameObject> AllBoxes { get; private set; }
+    public List<GameObject> AllBoxes { get; private set;}
     public Transform holdPoint;
     public static PlayerBoxHolder Instance { get; private set; }
     
@@ -52,6 +53,10 @@ public class PlayerBoxHolder : MonoBehaviour
         }
         if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
             RemoveBox(boxes.Pop());
+        if (heavyBoxesCount != 0)
+            Player.Instance.rb.mass = float.MaxValue;
+        else
+            Player.Instance.rb.mass = 1;
     }
     
     private void PickUpBox()
@@ -75,6 +80,10 @@ public class PlayerBoxHolder : MonoBehaviour
         StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
+        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
+        {
+            heavyBoxesCount++;
+        }
         ActiveBoxes.Add(box);
         boxes.Push(box);
         
@@ -82,7 +91,6 @@ public class PlayerBoxHolder : MonoBehaviour
 
     private void RemoveBox(GameObject box)
     {
-        throwingSound.Play();
         wait.Start();
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
@@ -90,6 +98,10 @@ public class PlayerBoxHolder : MonoBehaviour
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
+        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
+        {
+            heavyBoxesCount--;
+        }
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
