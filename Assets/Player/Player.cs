@@ -49,13 +49,21 @@ public class Player : MonoBehaviour
 
     private void ManageAudio()
     {
-        if (IsRunning && !runningAudio.isPlaying)
+        if (IsRunning)
         {
-            Debug.Log("SOUND");
-            runningAudio.Play();
+            if (!runningAudio.isPlaying)
+            {
+                Debug.Log("Starting audio");
+                runningAudio.Play();
+            }
         }
-        else if (runningAudio.isPlaying)
-            runningAudio.Stop();
+        else
+        {
+            if (runningAudio.isPlaying)
+            {
+                runningAudio.Stop();
+            }
+        }
     }
     
     private bool IsGroundedCollision(Collision2D collision)

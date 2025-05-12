@@ -92,21 +92,26 @@ public class PlayerBoxHolder : MonoBehaviour
     private void RemoveBox(GameObject box)
     {
         wait.Start();
+        
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
+        
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount--;
         }
+        
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
         ActiveBoxes.Remove(box);
+        
+        throwingSound.Play();
     }
 
     private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)
