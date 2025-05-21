@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 31be90a0924d41c46a388e49828ef168
+guid: 48e3718e2d5c24d20a8900d696848365
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1217827784446207575
-    second: heavybox_0
+      213: 1178477284944390507
+    second: vectorstock_42643789_0
+  - first:
+      213: -6853299652807835686
+    second: vectorstock_42643789_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heavybox_0
+      name: vectorstock_42643789_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1280
-        height: 1280
+        x: 299
+        y: 3
+        width: 2402
+        height: 1261
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7566489eae796e010800000000000000
-      internalID: 1217827784446207575
+      spriteID: b692af8c8daca5010800000000000000
+      internalID: 1178477284944390507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vectorstock_42643789_1
+      rect:
+        serializedVersion: 2
+        x: 2299
+        y: 0
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adfb41fa64034e0a0800000000000000
+      internalID: -6853299652807835686
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      heavybox_0: 1217827784446207575
+      vectorstock_42643789_0: 1178477284944390507
+      vectorstock_42643789_1: -6853299652807835686
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

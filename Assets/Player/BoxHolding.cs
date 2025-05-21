@@ -61,7 +61,7 @@ public class PlayerBoxHolder : MonoBehaviour
             return;
         wait.Start();
         OnPickingBox?.Invoke(Instance);
-        var capsuleCollider = Player.Instance.GetComponents<CapsuleCollider2D>()[0];
+        var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         var hit = Physics2D.Raycast(
             Player.Instance.transform.position + new Vector3(0,0.2f,0),
             Vector2.up,
@@ -85,13 +85,11 @@ public class PlayerBoxHolder : MonoBehaviour
     private void RemoveBox(GameObject box)
     {
         wait.Start();
-        var capsuleCollider = Player.Instance.GetComponents<CapsuleCollider2D>()[0];
+        var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
-        var cl = box.GetComponent<BoxCollider2D>();
-        cl.isTrigger = true;
         box.transform.parent = null;
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {

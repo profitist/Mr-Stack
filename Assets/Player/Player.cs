@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float movingSpeed = 5f;
     [SerializeField] private float jumpForce = 300f;
-    
+    [SerializeField] private AudioSource runningAudio;
     public bool IsJumping { get; private set; }
     public bool IsRunning { get; private set; }
     
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         IsRunning = !IsJumping && !AgainstWall && GameInput.Instance.GetMovementVector() != Vector2.zero;
+        ManageAudio();
         if (GameInput.Instance.GetMovementVector() != Vector2.zero)
         {
             facingDirection = (GameInput.Instance.GetMovementVector().x > 0 ) ? FacingDirection.Right: FacingDirection.Left;
@@ -45,7 +46,25 @@ public class Player : MonoBehaviour
         movementVector = movementVector.normalized;
         rb.linearVelocity = new Vector2(movementVector.x * movingSpeed, rb.linearVelocity.y);
     }
-    
+
+    private void ManageAudio()
+    {
+        if (IsRunning)
+        {
+            if (!runningAudio.isPlaying)
+            {
+                Debug.Log("Starting audio");
+                runningAudio.Play();
+            }
+        }
+        else
+        {
+            if (runningAudio.isPlaying)
+            {
+                runningAudio.Stop();
+            }
+        }
+    }
     
     private bool IsGroundedCollision(Collision2D collision)
     {
