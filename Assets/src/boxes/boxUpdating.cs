@@ -23,16 +23,18 @@ public class boxUpdating : MonoBehaviour
         if (IsGrounded)
             collider.isTrigger = false;
     }
+    
+    
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
             IsGrounded = true;
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (other.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
             IsGrounded = false;
     }
 }
