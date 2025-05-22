@@ -41,11 +41,11 @@ public class LevelManager : MonoBehaviour
             LevelMenu.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
             if (SceneManager.GetActiveScene().buildIndex == 3)
             {
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadScene("mainMenu");
             }
             else
             {
-                SceneManager.LoadScene("LevelMenu");
+                SceneManager.LoadScene("levelMenu");
             }
         }
     }

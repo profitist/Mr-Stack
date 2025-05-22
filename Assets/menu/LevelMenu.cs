@@ -8,12 +8,7 @@ namespace menu
     public class LevelMenu : MonoBehaviour
     {
         public static int nextLevel = 1;
-
-        private void Awake()
-        {
-            
-        }
-
+        
         public void PlayPressed()
         {
             SceneManager.LoadScene(nextLevel);

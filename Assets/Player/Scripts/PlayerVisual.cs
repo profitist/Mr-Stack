@@ -26,7 +26,7 @@ public class PlayerVisual : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-            _spriteRenderer.flipX = Player.Instance.facingDirection == FacingDirection.Left;
+        _spriteRenderer.flipX = Player.Instance.facingDirection == FacingDirection.Left;
     }
 
     private void OnEnable()

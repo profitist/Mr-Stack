@@ -8,7 +8,7 @@ public class grass_particle : MonoBehaviour
 
     public void Awake()
     {
-        ps = this.GetComponent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();
     }
 
     public void FixedUpdate()
