@@ -164,7 +164,6 @@ public class PlayerBoxHolder : MonoBehaviour
         if (currentBox is not null)
         {
             nearestBox = currentBox;
-            Debug.Log("FOUND!");
         }
         else
             nearestBox = null;
