@@ -7,6 +7,9 @@ using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
 {
+    [SerializeField] private AudioSource pickingSound;
+    [SerializeField] private AudioSource removeSound;
+    
     private Stack<GameObject> boxes;
     private GameObject nearestBox;
     public int heavyBoxesCount;
@@ -85,6 +88,8 @@ public class PlayerBoxHolder : MonoBehaviour
         {
             HoldingHeavyBox = false;
         }
+        
+        pickingSound.Play();
         ActiveBoxes.Add(box);
         boxes.Push(box);
         
@@ -113,6 +118,8 @@ public class PlayerBoxHolder : MonoBehaviour
                   + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
+        
+        removeSound.Play();
         ActiveBoxes.Remove(box);
     }
 
