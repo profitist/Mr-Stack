@@ -12,6 +12,7 @@ public class PlayerBoxHolder : MonoBehaviour
     private Stack<GameObject> boxes;
     private GameObject NearestBox;
     public int heavyBoxesCount;
+    public bool holdingHeavyBox {get; private set;}
     public Stopwatch wait = new();
     public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
@@ -47,10 +48,6 @@ public class PlayerBoxHolder : MonoBehaviour
         }
         if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
             RemoveBox(boxes.Pop());
-        if (heavyBoxesCount != 0)
-            Player.Instance.rb.mass = float.MaxValue;
-        else
-            Player.Instance.rb.mass = 1;
     }
     
     private void PickUpBox()
@@ -76,6 +73,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount++;
+            holdingHeavyBox = true;
         }
         ActiveBoxes.Add(box);
         boxes.Push(box);
@@ -94,6 +92,11 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount--;
+        }
+
+        if (heavyBoxesCount == 0)
+        {
+            holdingHeavyBox = false;
         }
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;

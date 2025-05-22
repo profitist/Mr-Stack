@@ -13,6 +13,6 @@ public class Background_Paralax : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocityX = -Player.Instance.rb.linearVelocityX / 10;
+        rb.linearVelocityX = (Player.Instance.rb.linearVelocityX != 0 ) ? -Player.Instance.rb.linearVelocityX / 10 : 0;
     }
 }
