@@ -11,14 +11,8 @@ public class PlayerBoxHolder : MonoBehaviour
 {
     private Stack<GameObject> boxes;
     private GameObject NearestBox;
-    private Stopwatch wait = new ();
-    
-    [SerializeField]
-    private AudioSource throwingSound;
-    [SerializeField]
-    private AudioSource pickingSound;
-    
     public int heavyBoxesCount;
+    public Stopwatch wait = new();
     public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
     public List<GameObject> AllBoxes { get; private set;}
@@ -76,7 +70,6 @@ public class PlayerBoxHolder : MonoBehaviour
         {
             return;
         }
-        pickingSound.Play();
         StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
@@ -92,26 +85,21 @@ public class PlayerBoxHolder : MonoBehaviour
     private void RemoveBox(GameObject box)
     {
         wait.Start();
-        
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
-        
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount--;
         }
-        
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
         ActiveBoxes.Remove(box);
-        
-        throwingSound.Play();
     }
 
     private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)

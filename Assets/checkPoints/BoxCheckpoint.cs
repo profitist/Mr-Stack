@@ -9,13 +9,15 @@ public class BoxCheckpoint : MonoBehaviour
     
     [SerializeField] private Transform holdPoint;
     [SerializeField] private string targetTag = "Box";
+    [SerializeField] public BoxTypes boxType;
     
     private bool completed;
     public static event Action<BoxCheckpoint> OnCheckpointFilling;
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag(targetTag) && !completed && other.gameObject.GetComponent<boxUpdating>().IsGrounded)
+        if (other.CompareTag(targetTag) && !completed && other.gameObject.GetComponent<boxUpdating>().IsGrounded 
+            && other.gameObject.GetComponent<boxUpdating>().boxType == boxType)
         {
             var rb = other.GetComponent<Rigidbody2D>();
             var cp = other.GetComponent<BoxCollider2D>();

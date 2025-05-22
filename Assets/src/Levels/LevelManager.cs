@@ -1,4 +1,5 @@
 using System;
+using menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +12,11 @@ public class LevelManager : MonoBehaviour
     private BoxCheckpoint[] items;
 
     private int placeCounter = 0;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        
         items = FindObjectsByType<BoxCheckpoint>(FindObjectsSortMode.None);
         Debug.Log(items.Length);
     }
@@ -35,7 +38,16 @@ public class LevelManager : MonoBehaviour
         placeCounter++;
         if (placeCounter >= items.Length)
         {
-            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1) %3);
+            GameInput.Instance.playerInputActions.Disable();
+            LevelMenu.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+            if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+            else
+            {
+                SceneManager.LoadScene("LevelMenu");
+            }
         }
     }
     

@@ -17,16 +17,24 @@ public class boxUpdating : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<BoxCollider2D>();
     }
+
+    public void FixedUpdate()
+    {
+        if (IsGrounded)
+            collider.isTrigger = false;
+    }
     
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts.Any(n => n.normal.y > 0.6f) && collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
             IsGrounded = true;
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             IsGrounded = false;
     }
-    
 }
