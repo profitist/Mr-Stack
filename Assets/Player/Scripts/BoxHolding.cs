@@ -11,6 +11,7 @@ public class PlayerBoxHolder : MonoBehaviour
     private GameObject nearestBox;
     public int heavyBoxesCount;
     private bool isEggOnStack;
+    public bool HoldingHeavyBox {get; set;}
     private Stopwatch wait = new();
     public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
@@ -78,6 +79,11 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount++;
+            HoldingHeavyBox = true;
+        }
+        if (heavyBoxesCount == 0)
+        {
+            HoldingHeavyBox = false;
         }
         ActiveBoxes.Add(box);
         boxes.Push(box);
@@ -96,6 +102,8 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount--;
+            if (heavyBoxesCount == 0)
+                HoldingHeavyBox = false;
         }
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Egg)
         {

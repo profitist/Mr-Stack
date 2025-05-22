@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rounded_button_sprite_0: 8181688908770836767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
