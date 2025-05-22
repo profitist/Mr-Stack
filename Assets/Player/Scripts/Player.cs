@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         {
             facingDirection = (GameInput.Instance.GetMovementVector().x > 0 ) ? FacingDirection.Right: FacingDirection.Left;
         }
-        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.linearVelocity.y) <= 0.1f)
+        if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.linearVelocity.y) <= 0.1f && !PlayerBoxHolder.Instance.holdingHeavyBox)
         {
             rb.AddForce(Vector2.up * (Time.fixedDeltaTime * jumpForce) , ForceMode2D.Impulse);
             IsJumping = true;

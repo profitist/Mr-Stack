@@ -34,7 +34,6 @@ public class LevelManager : MonoBehaviour
 
     private void ActionOnPlacing(BoxCheckpoint checkpoint)
     {
-        successSound.Play();
         placeCounter++;
         if (placeCounter >= items.Length)
         {
