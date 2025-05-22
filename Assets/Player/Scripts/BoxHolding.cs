@@ -2,24 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
 {
     private Stack<GameObject> boxes;
-    private GameObject NearestBox;
+    private GameObject nearestBox;
     public int heavyBoxesCount;
-    public Stopwatch wait = new();
+    private bool isEggOnStack;
+    private Stopwatch wait = new();
     public static event Action<PlayerBoxHolder> OnPickingBox;
     public HashSet<GameObject> ActiveBoxes { get; private set; }
     public List<GameObject> AllBoxes { get; private set;}
     public Transform holdPoint;
     public static PlayerBoxHolder Instance { get; private set; }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         AllBoxes = new List<GameObject>();
@@ -56,9 +54,13 @@ public class PlayerBoxHolder : MonoBehaviour
     private void PickUpBox()
     {
         FindNearestBox();
-        var box = NearestBox;
+        var box = nearestBox;
         if (box is null)
             return;
+        if (isEggOnStack)
+            return;
+        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Egg)
+            isEggOnStack = true;
         wait.Start();
         OnPickingBox?.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
@@ -94,6 +96,10 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount--;
+        }
+        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Egg)
+        {
+            isEggOnStack = false;
         }
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
@@ -142,10 +148,10 @@ public class PlayerBoxHolder : MonoBehaviour
         }
         if (currentBox is not null)
         {
-            NearestBox = currentBox;
+            nearestBox = currentBox;
             Debug.Log("FOUND!");
         }
         else
-            NearestBox = null;
+            nearestBox = null;
     }
 }

@@ -4,7 +4,7 @@ public enum BoxTypes
 {
     Standart,
     Heavy,
-    Light,
+    Egg,
 }
 
 public enum FacingDirection
