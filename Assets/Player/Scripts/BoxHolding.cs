@@ -63,7 +63,7 @@ public class PlayerBoxHolder : MonoBehaviour
             return;
         if (isEggOnStack)
             return;
-        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Egg)
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
             isEggOnStack = true;
         wait.Start();
         OnPickingBox?.Invoke(Instance);
@@ -79,7 +79,7 @@ public class PlayerBoxHolder : MonoBehaviour
         StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
-        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount++;
             HoldingHeavyBox = true;
@@ -104,13 +104,13 @@ public class PlayerBoxHolder : MonoBehaviour
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
-        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Heavy)
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount--;
             if (heavyBoxesCount == 0)
                 HoldingHeavyBox = false;
         }
-        if (box.GetComponent<boxUpdating>().boxType == BoxTypes.Egg)
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
         {
             isEggOnStack = false;
         }

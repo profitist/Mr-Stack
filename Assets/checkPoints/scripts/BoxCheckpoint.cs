@@ -16,11 +16,14 @@ public class BoxCheckpoint : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag(targetTag) && !completed && other.gameObject.GetComponent<boxUpdating>().IsGrounded 
-            && other.gameObject.GetComponent<boxUpdating>().boxType == boxType)
+        if (other.CompareTag(targetTag) && !completed && other.gameObject.GetComponent<BoxUpdating>().IsGrounded 
+            && other.gameObject.GetComponent<BoxUpdating>().boxType == boxType)
         {
+            Debug.Log($"{DateTime.Now.Millisecond} -- Checkpoint finished");
             var rb = other.GetComponent<Rigidbody2D>();
             var cp = other.GetComponent<BoxCollider2D>();
+            var boxObjecct = other.gameObject.GetComponent<BoxUpdating>();
+            boxObjecct.isFinished = true;
             if (rb != null)
             {
                 cp.enabled = false;

@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
     private void OnEnable()
     {
         BoxCheckpoint.OnCheckpointFilling += ActionOnPlacing;
+        BoxUpdating.OnEggCrushing += ActionOnEggCrushing;
     }
 
     private void OnDisable()
@@ -50,4 +51,8 @@ public class LevelManager : MonoBehaviour
         }
     }
     
+    private void ActionOnEggCrushing(BoxUpdating boxUpdating)
+    {
+        GameInput.Instance.playerInputActions.Disable();
+    }
 }
