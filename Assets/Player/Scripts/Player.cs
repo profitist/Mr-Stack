@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public FacingDirection facingDirection { get; private set; }
     public static Player Instance { get; private set; }
     
-    public Rigidbody2D rb{ get; private set; }
+    public Rigidbody2D rb { get; private set; }
 
     private void Awake()
     {
@@ -61,9 +61,7 @@ public class Player : MonoBehaviour
         else
         {
             if (runningAudio.isPlaying)
-            {
                 runningAudio.Stop();
-            }
         }
     }
     
@@ -77,9 +75,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") && AgainstWall)
             AgainstWall = false;
         if (IsGroundedCollision(collision))
-        {
             IsJumping = true;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

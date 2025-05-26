@@ -42,7 +42,7 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         if (wait.IsRunning && wait.ElapsedMilliseconds >= 500)
             wait = new Stopwatch();
-        if (GameInput.Instance.GrabingBox && !wait.IsRunning && Player.Instance.rb.linearVelocityY < 0.1f)
+        if (GameInput.Instance.GrabbingBox && !wait.IsRunning && Player.Instance.rb.linearVelocityY < 0.1f)
         {
             PickUpBox();
             Debug.Log(boxes.Count);
@@ -73,9 +73,7 @@ public class PlayerBoxHolder : MonoBehaviour
             Vector2.up,
             2 + boxes.Count);
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Ground"))
-        {
             return;
-        }
         StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
@@ -85,10 +83,7 @@ public class PlayerBoxHolder : MonoBehaviour
             HoldingHeavyBox = true;
         }
         if (heavyBoxesCount == 0)
-        {
             HoldingHeavyBox = false;
-        }
-        
         pickingSound.Play();
         ActiveBoxes.Add(box);
         boxes.Push(box);
@@ -111,9 +106,7 @@ public class PlayerBoxHolder : MonoBehaviour
                 HoldingHeavyBox = false;
         }
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
-        {
             isEggOnStack = false;
-        }
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
                   + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
@@ -161,11 +154,6 @@ public class PlayerBoxHolder : MonoBehaviour
             if (!ActiveBoxes.Contains(box) && collision.IsTouching(box.GetComponent<BoxCollider2D>()))
                 currentBox = box;
         }
-        if (currentBox is not null)
-        {
-            nearestBox = currentBox;
-        }
-        else
-            nearestBox = null;
+        nearestBox = currentBox ?? null;
     }
 }
