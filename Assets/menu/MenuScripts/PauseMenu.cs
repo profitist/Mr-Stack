@@ -6,7 +6,7 @@ namespace menu
 {
     public class PauseMenu : MonoBehaviour
     {
-        Canvas pauseMenu;
+        private Canvas pauseMenu;
         private void Awake()
         {
             pauseMenu = GetComponent<Canvas>();
@@ -17,14 +17,17 @@ namespace menu
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                GameInput.Instance.playerInputActions.Disable();
-                pauseMenu.enabled = true;
+                if (!pauseMenu.enabled)
+                    GameInput.Instance.playerInputActions.Disable();
+                else
+                    GameInput.Instance.playerInputActions.Enable();
+                pauseMenu.enabled = !pauseMenu.enabled;
             }
         }
 
         public void ExitGame()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("mainMenu");
         }
 
         public void RestartGame()
@@ -36,6 +39,11 @@ namespace menu
         {
             pauseMenu.enabled = false;
             GameInput.Instance.playerInputActions.Enable();
+        }
+
+        public void OpenSettings()
+        {
+            SceneManager.LoadScene("settings");
         }
     }
 }

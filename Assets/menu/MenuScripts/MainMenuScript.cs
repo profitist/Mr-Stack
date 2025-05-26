@@ -5,13 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
-    
     public void StartGame()
     {
         SceneManager.LoadScene("tutorial");
+    }
+    
+    public void OpenSettings()
+    {
+        SceneManager.LoadScene("settings");
     }
 }
