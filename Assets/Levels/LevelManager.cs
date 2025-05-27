@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         {
             GameInput.Instance.playerInputActions.Disable();
             LevelMenu.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-            if (SceneManager.GetActiveScene().buildIndex == 5)
+            if (SceneManager.GetActiveScene().buildIndex == 4)
                 SceneManager.LoadScene("mainMenu");
             else
                 SceneManager.LoadScene("levelMenu");
