@@ -18,11 +18,18 @@ namespace menu
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (!pauseMenu.enabled)
+                {
                     GameInput.Instance.playerInputActions.Disable();
+                    Time.timeScale = 0;
+                }
                 else
+                {
                     GameInput.Instance.playerInputActions.Enable();
+                    Time.timeScale = 1;
+                }
+
                 pauseMenu.enabled = !pauseMenu.enabled;
-            }
+            }   
         }
 
         public void ExitGame()
@@ -32,12 +39,14 @@ namespace menu
 
         public void RestartGame()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void ContinueGame()
         {
             pauseMenu.enabled = false;
+            Time.timeScale = 1;
             GameInput.Instance.playerInputActions.Enable();
         }
 
