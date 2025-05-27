@@ -421,51 +421,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &143665540
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 143665542}
-  - component: {fileID: 143665541}
-  m_Layer: 0
-  m_Name: "\u0421\u041A\u0420\u0418\u041F\u0422 \u041D\u0415 \u0422\u0420\u041E\u0413\u0410\u0422\u042C
-    \u0421\u0423\u041A\u0410"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &143665541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143665540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc91158e24b4a0a965e155da28c7e99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &143665542
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143665540}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2106237, y: 1.6670367, z: 0.66069734}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &276975605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2652742431979710378, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
@@ -508,7 +463,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 90}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060288658
 MonoBehaviour:
@@ -533,9 +488,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.3019608, g: 0.57254905, b: 0.7372549, a: 1}
     m_HighlightedColor: {r: 0.24528301, g: 0.244126, b: 0.244126, a: 1}
-    m_PressedColor: {r: 0.1957209, g: 0.7056604, b: 0.22620648, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -554,7 +509,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143665541}
+      - m_Target: {fileID: 1488098407}
         m_TargetAssemblyTypeName: menu.LevelMenu, Assembly-CSharp
         m_MethodName: PlayPressed
         m_Mode: 1
@@ -686,7 +641,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 75}
+  m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225981460
 MonoBehaviour:
@@ -711,9 +666,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 0.7411765, g: 0.3019608, b: 0.32156864, a: 1}
     m_HighlightedColor: {r: 0.24705882, g: 0.24705882, b: 0.24705882, a: 1}
-    m_PressedColor: {r: 0.2066856, g: 0.7660377, b: 0.23612522, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_PressedColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -732,7 +687,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143665541}
+      - m_Target: {fileID: 1488098407}
         m_TargetAssemblyTypeName: menu.LevelMenu, Assembly-CSharp
         m_MethodName: ExitPressed
         m_Mode: 1
@@ -875,7 +830,8 @@ PrefabInstance:
       value: dancingDino1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2448639401163833014, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
@@ -1098,7 +1054,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6691028219476326333, guid: a8cdcbf933c964650bff72b6edf35954, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2448639401163833014, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
@@ -1114,6 +1071,7 @@ GameObject:
   - component: {fileID: 1488098405}
   - component: {fileID: 1488098404}
   - component: {fileID: 1488098403}
+  - component: {fileID: 1488098407}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1207,6 +1165,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1488098407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488098402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc91158e24b4a0a965e155da28c7e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1542260199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,8 +1347,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289057791
+  m_fontColor: {r: 1, g: 0.82745105, b: 0.64705884, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3346,5 +3316,4 @@ SceneRoots:
   - {fileID: 97620714}
   - {fileID: 1488098406}
   - {fileID: 59950163}
-  - {fileID: 143665542}
   - {fileID: 1403121544}
