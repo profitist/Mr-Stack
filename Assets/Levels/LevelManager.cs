@@ -7,20 +7,15 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] 
     private AudioSource successSound;
-    
-    
     private BoxCheckpoint[] items;
-
-    private int placeCounter = 0;
+    private int placeCounter;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        
         items = FindObjectsByType<BoxCheckpoint>(FindObjectsSortMode.None);
         Debug.Log(items.Length);
     }
-    // Update is called once per frame
+
     private void OnEnable()
     {
         BoxCheckpoint.OnCheckpointFilling += ActionOnPlacing;
@@ -40,14 +35,10 @@ public class LevelManager : MonoBehaviour
         {
             GameInput.Instance.playerInputActions.Disable();
             LevelMenu.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-            if (SceneManager.GetActiveScene().buildIndex == 3)
-            {
+            if (SceneManager.GetActiveScene().buildIndex == 5)
                 SceneManager.LoadScene("mainMenu");
-            }
             else
-            {
                 SceneManager.LoadScene("levelMenu");
-            }
         }
     }
     

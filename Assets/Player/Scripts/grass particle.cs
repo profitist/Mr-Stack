@@ -14,9 +14,7 @@ public class grass_particle : MonoBehaviour
     public void FixedUpdate()
     {
         if (!Player.Instance.IsRunning || Player.Instance.IsJumping)
-        {
             ps.Stop();
-        }
         ps.Play();
     }
 }

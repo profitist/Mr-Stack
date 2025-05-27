@@ -5,7 +5,7 @@ public class MusicManager : MonoBehaviour
     private static MusicManager instance;
 
     [SerializeField] private AudioSource musicSource;
-    private float defaultVolume = 0.5f;
+    private float defaultVolume = 0.2f;
 
     private void Awake()
     {
