@@ -52,6 +52,8 @@ namespace menu
 
         public void OpenSettings()
         {
+            pauseMenu.enabled = false;
+            Time.timeScale = 1;
             SceneManager.LoadScene("settings");
         }
     }

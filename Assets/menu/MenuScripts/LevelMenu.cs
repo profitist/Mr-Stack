@@ -16,7 +16,7 @@ namespace menu
 
         public void ExitPressed()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("mainMenu");
         }
     }
 }
