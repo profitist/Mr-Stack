@@ -7,7 +7,7 @@ namespace menu
 {
     public class LevelMenu : MonoBehaviour
     {
-        public static int nextLevel = 3;
+        public static int nextLevel = 2;
         
         public void PlayPressed()
         {
