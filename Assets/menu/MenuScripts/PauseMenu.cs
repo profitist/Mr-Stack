@@ -34,24 +34,32 @@ namespace menu
 
         public void ExitGame()
         {
+            GameInput.Instance.playerInputActions.Enable();
+            pauseMenu.enabled = false;
+            Time.timeScale = 1;
             SceneManager.LoadScene("mainMenu");
         }
 
         public void RestartGame()
         {
+            GameInput.Instance.playerInputActions.Enable();
+            pauseMenu.enabled = false;
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void ContinueGame()
         {
+            GameInput.Instance.playerInputActions.Enable();
             pauseMenu.enabled = false;
             Time.timeScale = 1;
-            GameInput.Instance.playerInputActions.Enable();
         }
 
         public void OpenSettings()
         {
+            GameInput.Instance.playerInputActions.Enable();
+            pauseMenu.enabled = false;
+            Time.timeScale = 1;
             SceneManager.LoadScene("settings");
         }
     }

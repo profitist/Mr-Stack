@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    private static MusicManager instance;
+    public static MusicManager instance;
 
-    [SerializeField] private AudioSource musicSource;
-    private float defaultVolume = 0.1f;
+    [SerializeField] public AudioSource musicSource;
+    public static float defaultVolume = 0.1f;
 
     private void Awake()
     {
@@ -22,10 +22,5 @@ public class MusicManager : MonoBehaviour
     {
         musicSource.volume = volume;
         PlayerPrefs.SetFloat("MusicVolume", volume);
-    }
-
-    public float GetCurrentVolume()
-    {
-        return musicSource.volume;
     }
 }
