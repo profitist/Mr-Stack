@@ -24,6 +24,8 @@ public class DeathScript : MonoBehaviour
     {
         deathMenu.enabled = false;
         Time.timeScale = 1;
+        GameInput.Instance.playerInputActions.Enable();
+        GameInput.IsDead = false;
         SceneManager.LoadScene("mainMenu");
     }
 
@@ -31,6 +33,8 @@ public class DeathScript : MonoBehaviour
     {
         deathMenu.enabled = false;
         Time.timeScale = 1;
+        GameInput.Instance.playerInputActions.Enable();
+        GameInput.IsDead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
@@ -40,6 +44,7 @@ public class DeathScript : MonoBehaviour
         deathMenu.enabled = false;
         Time.timeScale = 1;
         SettingMenu.levelId = SceneManager.GetActiveScene().buildIndex;
+        GameInput.IsDead = false;
         SceneManager.LoadScene("settings");
     }
 }

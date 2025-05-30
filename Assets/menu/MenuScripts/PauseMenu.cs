@@ -29,7 +29,7 @@ namespace menu
                 }
 
                 pauseMenu.enabled = !pauseMenu.enabled;
-            }
+            }   
         }
 
         public void ExitGame()
