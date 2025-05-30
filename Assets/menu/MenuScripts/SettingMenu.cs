@@ -20,7 +20,6 @@ public class SettingMenu : MonoBehaviour
         SceneManager.LoadScene("mainMenu");
     }
     
-    // Update is called once per frame
     void Update()
     {
         volumeSlider.value = MusicManager.instance.musicSource.volume;
