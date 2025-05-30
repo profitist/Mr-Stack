@@ -112,6 +112,7 @@ public class PlayerBoxHolder : MonoBehaviour
         
         removeSound.Play();
         ActiveBoxes.Remove(box);
+        rb.mass = 5;
     }
 
     private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)
