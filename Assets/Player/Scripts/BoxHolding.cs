@@ -49,10 +49,6 @@ public class PlayerBoxHolder : MonoBehaviour
         }
         if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
             RemoveBox(boxes.Pop());
-        if (heavyBoxesCount != 0)
-            Player.Instance.rb.mass = float.MaxValue;
-        else
-            Player.Instance.rb.mass = 1;
     }
     
     private void PickUpBox()
