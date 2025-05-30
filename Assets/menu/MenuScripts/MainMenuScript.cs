@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
     
     public void OpenSettings()
     {
+        SettingMenu.levelId = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene("settings");
     }
 }
