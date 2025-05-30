@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         ManageAudio();
         if (GameInput.Instance.GetMovementVector() != Vector2.zero)
         {
-            facingDirection = (GameInput.Instance.GetMovementVector().x > 0 ) ? FacingDirection.Right: FacingDirection.Left;
+            facingDirection = GameInput.Instance.GetMovementVector().x > 0 ? FacingDirection.Right: FacingDirection.Left;
         }
         if (GameInput.Instance.Jumping && !IsJumping && Math.Abs(rb.linearVelocity.y) <= 0.1f 
             && !PlayerBoxHolder.Instance.HoldingHeavyBox)
