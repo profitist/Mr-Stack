@@ -29,7 +29,7 @@ namespace menu
                 }
 
                 pauseMenu.enabled = !pauseMenu.enabled;
-            }   
+            }
         }
 
         public void ExitGame()
@@ -58,6 +58,7 @@ namespace menu
             GameInput.Instance.playerInputActions.Enable();
             pauseMenu.enabled = false;
             Time.timeScale = 1;
+            SettingMenu.levelId = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("settings");
         }
     }
