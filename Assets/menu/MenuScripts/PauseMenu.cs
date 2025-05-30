@@ -34,7 +34,6 @@ namespace menu
 
         public void ExitGame()
         {
-            GameInput.Instance.playerInputActions.Enable();
             pauseMenu.enabled = false;
             Time.timeScale = 1;
             SceneManager.LoadScene("mainMenu");
@@ -42,7 +41,6 @@ namespace menu
 
         public void RestartGame()
         {
-            GameInput.Instance.playerInputActions.Enable();
             pauseMenu.enabled = false;
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
