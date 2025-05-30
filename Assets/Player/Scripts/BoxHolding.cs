@@ -77,6 +77,7 @@ public class PlayerBoxHolder : MonoBehaviour
         StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
+        Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0);
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount++;
@@ -96,6 +97,7 @@ public class PlayerBoxHolder : MonoBehaviour
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
+        Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0);
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
@@ -108,7 +110,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
             isEggOnStack = false;
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
-                  + Player.Instance.rb.linearVelocity.x;
+                  + Player.Instance.rb.linearVelocity.x * 0.8f;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
         

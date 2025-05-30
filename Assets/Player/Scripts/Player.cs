@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     
     private bool IsGroundedCollision(Collision2D collision)
     {
-        return collision.contacts.Any(contact => contact.normal.y >= 0.3f);
+        return collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) <= 1e-3);
     }
     
     private void OnCollisionExit2D(Collision2D collision)
@@ -78,9 +78,9 @@ public class Player : MonoBehaviour
             IsJumping = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.contacts.Any(contact => contact.normal.y < 0.3f))
+        if (collision.contacts.Any(contact => Mathf.Abs(contact.normal.y) <= 1e-3))
             AgainstWall = true;
         if (IsGroundedCollision(collision))
             IsJumping = false;
