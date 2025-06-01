@@ -63,12 +63,6 @@ public class PlayerBoxHolder : MonoBehaviour
             return;
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
             isEggOnStack = true;
-        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
-        {
-            Debug.Log("SLEEP");
-            var boxAnimator = box.GetComponentInChildren<Animator>();
-            boxAnimator.SetBool("isSleeping", true);
-        }
         wait.Start();
         OnPickingBox?.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
@@ -92,7 +86,12 @@ public class PlayerBoxHolder : MonoBehaviour
         pickingSound.Play();
         ActiveBoxes.Add(box);
         boxes.Push(box);
-        
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
+        {
+            Debug.Log("SLEEP");
+            var boxAnimator = box.GetComponentInChildren<Animator>();
+            boxAnimator.SetBool("isSleeping", true);
+        }
     }
 
     private void RemoveBox(GameObject box)
@@ -117,14 +116,14 @@ public class PlayerBoxHolder : MonoBehaviour
                   + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
+        removeSound.Play();
+        ActiveBoxes.Remove(box);
+        rb.mass = 5;
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
         {
             var boxAnimator = box.GetComponentInChildren<Animator>();
             boxAnimator.SetBool("isSleeping", false);
         }
-        removeSound.Play();
-        ActiveBoxes.Remove(box);
-        rb.mass = 5;
     }
 
     private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)
@@ -145,7 +144,7 @@ public class PlayerBoxHolder : MonoBehaviour
             var verticalSpeed = Mathf.Cos(t * Mathf.PI) * constVel + (end.y - start.y) / duration;
             rb.linearVelocity =  new Vector2(
                 velX + Player.Instance.rb.linearVelocityX * (Player.Instance.AgainstWall ? 0 : 1),
-                Player.Instance.rb.linearVelocityY * (Player.Instance.AgainstWall == true ? 0 : 1) + verticalSpeed);
+                Player.Instance.rb.linearVelocityY * (Player.Instance.AgainstWall ? 0 : 1) + verticalSpeed);
             time += Time.deltaTime;
             yield return null;
         }
@@ -158,13 +157,13 @@ public class PlayerBoxHolder : MonoBehaviour
     
     private void FindNearestBox()
     {
-        GameObject currentBox = default;
+        GameObject currentBox = null;
         var collision = Player.Instance.GetComponent<CapsuleCollider2D>();
         foreach (var box in AllBoxes)
         {
             if (!ActiveBoxes.Contains(box) && collision.IsTouching(box.GetComponent<BoxCollider2D>()))
                 currentBox = box;
         }
-        nearestBox = currentBox ?? null;
+        nearestBox = currentBox;
     }
 }
