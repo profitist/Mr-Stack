@@ -1,7 +1,9 @@
-using System;
+using System.Threading;
 using menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
 {
@@ -35,7 +37,7 @@ public class LevelManager : MonoBehaviour
         {
             GameInput.Instance.playerInputActions.Disable();
             LevelMenu.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-            if (SceneManager.GetActiveScene().buildIndex == 4)
+            if (SceneManager.GetActiveScene().buildIndex == 6)
                 SceneManager.LoadScene("mainMenu");
             else
                 SceneManager.LoadScene("levelMenu");
@@ -45,5 +47,9 @@ public class LevelManager : MonoBehaviour
     private void ActionOnEggCrushing(BoxUpdating boxUpdating)
     {
         GameInput.Instance.playerInputActions.Disable();
+        var wait = Stopwatch.StartNew();
+        Thread.Sleep(1000);
+        wait.Stop();
+        GameInput.IsDead = true;
     }
 }

@@ -11,8 +11,9 @@ public class GameInput : MonoBehaviour
     public bool GrabbingBox { get; private set; }
     public bool PuttingBox { get; private set; }
     public bool Jumping { get; private set; }
-    
-    
+
+    public static bool IsDead = false;
+
     private void Awake()
     {
         Instance = this;
