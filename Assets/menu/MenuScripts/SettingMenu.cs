@@ -26,7 +26,6 @@ public class SettingMenu : MonoBehaviour
     {
         SceneManager.LoadScene(levelId);
     }
-
     
     void Update()
     {

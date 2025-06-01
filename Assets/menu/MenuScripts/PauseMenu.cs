@@ -27,7 +27,6 @@ namespace menu
                     GameInput.Instance.playerInputActions.Enable();
                     Time.timeScale = 1;
                 }
-
                 pauseMenu.enabled = !pauseMenu.enabled;
             }   
         }
