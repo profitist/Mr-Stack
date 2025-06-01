@@ -8,7 +8,8 @@ TagManager:
   - Box
   - Wall
   - decoration
-  - Soft
+  - tick
+  - boximage
   layers:
   - Default
   - TransparentFX

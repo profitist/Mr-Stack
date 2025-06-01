@@ -20,16 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0.25
+    - time: 0
       value: {fileID: -2024334456871629720, guid: e7de3dc4e014848ac810017729cec2df, type: 3}
-    - time: 0.5
+    - time: 0.25
       value: {fileID: 5599988039434491785, guid: e7de3dc4e014848ac810017729cec2df, type: 3}
-    - time: 0.75
+    - time: 0.5
       value: {fileID: 1462552665366891476, guid: e7de3dc4e014848ac810017729cec2df, type: 3}
-    - time: 1
+    - time: 0.75
       value: {fileID: -1417175158222480148, guid: e7de3dc4e014848ac810017729cec2df, type: 3}
     attribute: m_Sprite
-    path: eggVisual
+    path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -41,7 +41,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 962930438
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.25
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
