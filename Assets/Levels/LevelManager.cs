@@ -47,9 +47,6 @@ public class LevelManager : MonoBehaviour
     private void ActionOnEggCrushing(BoxUpdating boxUpdating)
     {
         GameInput.Instance.playerInputActions.Disable();
-        var wait = Stopwatch.StartNew();
-        Thread.Sleep(1000);
-        wait.Stop();
         GameInput.IsDead = true;
     }
 }
