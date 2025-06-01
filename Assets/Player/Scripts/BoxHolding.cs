@@ -22,6 +22,7 @@ public class PlayerBoxHolder : MonoBehaviour
     public Transform holdPoint;
     public static PlayerBoxHolder Instance { get; private set; }
     
+    
     void Awake()
     {
         AllBoxes = new List<GameObject>();
@@ -55,12 +56,19 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         FindNearestBox();
         var box = nearestBox;
+        
         if (box is null)
             return;
         if (isEggOnStack)
             return;
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
             isEggOnStack = true;
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
+        {
+            Debug.Log("SLEEP");
+            var boxAnimator = box.GetComponentInChildren<Animator>();
+            boxAnimator.SetBool("isSleeping", true);
+        }
         wait.Start();
         OnPickingBox?.Invoke(Instance);
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
@@ -109,7 +117,11 @@ public class PlayerBoxHolder : MonoBehaviour
                   + Player.Instance.rb.linearVelocity.x * 0.8f;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
-        
+        if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
+        {
+            var boxAnimator = box.GetComponentInChildren<Animator>();
+            boxAnimator.SetBool("isSleeping", false);
+        }
         removeSound.Play();
         ActiveBoxes.Remove(box);
         rb.mass = 5;
