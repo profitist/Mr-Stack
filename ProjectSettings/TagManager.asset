@@ -10,6 +10,7 @@ TagManager:
   - decoration
   - tick
   - boximage
+  - Soft
   layers:
   - Default
   - TransparentFX

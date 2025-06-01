@@ -36,10 +36,11 @@ public class BoxUpdating : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.otherCollider.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
+        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
         {
             IsGrounded = true;
             rb.mass = float.MaxValue;
+            Debug.Log("WTF");
             if (collision.gameObject.CompareTag("Ground"))
             {
                 Invoke(nameof(DelayedBreakCheck), 0.5f);
