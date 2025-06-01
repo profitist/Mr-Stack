@@ -52,7 +52,6 @@ public class BoxUpdating : MonoBehaviour
 
     private void BreakEgg()
     {
-        animator.SetBool("isBreaking", true);
         OnEggCrushing?.Invoke(this);
     }
     
@@ -62,7 +61,10 @@ public class BoxUpdating : MonoBehaviour
         {
             IsGrounded = true;
             if (boxType == BoxTypes.Egg)
-                BreakEgg();
+            {
+                animator.SetBool("isBreaking", true);
+                Invoke(nameof(BreakEgg), 1f);
+            }
         }
     }
 }
