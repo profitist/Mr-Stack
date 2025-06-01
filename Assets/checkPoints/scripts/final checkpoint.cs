@@ -10,18 +10,24 @@ namespace checkPoints.scripts
 {
     public class FinalCheckpoint : MonoBehaviour
     {
-        private int placeCounter;
         private FinalCheckpoint Instance;
         private Camera mainCamera;
         private Rigidbody2D Text;
+        private LevelManager levelManager;
+        private GameObject thought;
+        private GameObject thought2;
         public static bool Final { get; private set; }
         private void Awake()
         {
-            placeCounter = FindObjectsByType<LevelManager>(FindObjectsSortMode.None).First().placeCounter;
+            levelManager = FindObjectsByType<LevelManager>(FindObjectsSortMode.None).First();
             Instance = this;
             mainCamera = Camera.main;
             Instance.GetComponentInChildren<SpriteRenderer>().enabled = false;
             Instance.GetComponentInChildren<Animator>().enabled = false;
+            thought = Player.Instance.GetComponentInChildren<thoughtRouter>().gameObject;
+            thought.SetActive(false);
+            thought2 = GetComponentInChildren<thoughtRouter>().gameObject;
+            thought2.SetActive(false);
             
         }
 
@@ -36,11 +42,10 @@ namespace checkPoints.scripts
 
         private void FixedUpdate()
         {
-            if (placeCounter == 2)
+            if (levelManager.placeCounter == 2)
             {
                 Instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
                 Instance.GetComponentInChildren<Animator>().enabled = true;
-                placeCounter = 0;
             }
         }
 
@@ -63,6 +68,8 @@ namespace checkPoints.scripts
             FindObjectsByType<CinemachineCamera>(FindObjectsSortMode.None).First().enabled = false;
             wait = Stopwatch.StartNew();
             var rb = mainCamera.GetComponent<Rigidbody2D>();
+            thought.SetActive(true);
+            thought2.SetActive(true);
             while (wait.ElapsedMilliseconds < 1000)
             {
                 yield return null;
