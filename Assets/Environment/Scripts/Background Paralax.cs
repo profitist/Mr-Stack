@@ -17,13 +17,13 @@ public class Background_Paralax : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (wait.ElapsedMilliseconds <= 1000)
+        if (wait.ElapsedMilliseconds <= 1200)
         {
-            rb.linearVelocityX = 0.3f;
+            rb.linearVelocityX = 0.1f;
         }
-        else if (wait.ElapsedMilliseconds <= 2000)
+        else if (wait.ElapsedMilliseconds <= 2400)
         {
-            rb.linearVelocityX = -0.3f;
+            rb.linearVelocityX = -0.1f;
         }
         else
         {
