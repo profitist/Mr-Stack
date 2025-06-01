@@ -22531,7 +22531,7 @@ GameObject:
   - component: {fileID: 172411498}
   m_Layer: 0
   m_Name: thought
-  m_TagString: Untagged
+  m_TagString: tick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22559,7 +22559,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172411496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab82457db48844b21977bcab9aef7fff, type: 3}
   m_Name: 
@@ -25430,7 +25430,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 172411497}
@@ -25479,12 +25479,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1404306259095297193, guid: 69434cb36594c7a4ba2c39187cf1bb7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 855bdf1c0fb6bf64185f71f5bb5b84fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11.375, y: 8.9375}
+  m_Size: {x: 10.81, y: 10.81}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -27685,11 +27685,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1805719977842102762, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1805719977842102762, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2026543167768741551, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27708,9 +27708,21 @@ PrefabInstance:
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7729350413129806805, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_Size.x
+      value: 10.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729350413129806805, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_Size.y
+      value: 10.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7729350413129806805, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1404306259095297193, guid: 69434cb36594c7a4ba2c39187cf1bb7b, type: 3}
+      objectReference: {fileID: 21300000, guid: 855bdf1c0fb6bf64185f71f5bb5b84fa, type: 3}
+    - target: {fileID: 7729350413129806805, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7987185568790043165, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.41

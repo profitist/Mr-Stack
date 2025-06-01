@@ -24,7 +24,7 @@ namespace checkPoints.scripts
             mainCamera = Camera.main;
             Instance.GetComponentInChildren<SpriteRenderer>().enabled = false;
             Instance.GetComponentInChildren<Animator>().enabled = false;
-            thought = Player.Instance.GetComponentInChildren<thoughtRouter>().gameObject;
+            thought = Player.Instance.GetComponentsInChildren<SpriteRenderer>().Where(x => x.gameObject.CompareTag("tick")).First().gameObject;
             thought.SetActive(false);
             thought2 = GetComponentInChildren<thoughtRouter>().gameObject;
             thought2.SetActive(false);
