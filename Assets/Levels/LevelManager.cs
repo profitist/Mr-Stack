@@ -9,8 +9,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] 
     private AudioSource successSound;
-    private BoxCheckpoint[] items;
-    private int placeCounter;
+    public BoxCheckpoint[] items{get; private set;}
+    public int placeCounter {get; private set;}
     
     void Awake()
     {

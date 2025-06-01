@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using checkPoints.scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector2 = UnityEngine.Vector2;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-        IsRunning = !IsJumping && !AgainstWall && GameInput.Instance.GetMovementVector() != Vector2.zero;
+        IsRunning = (!IsJumping && !AgainstWall && GameInput.Instance.GetMovementVector() != Vector2.zero) || FinalCheckpoint.Final;
         ManageAudio();
         if (GameInput.Instance.GetMovementVector() != Vector2.zero)
         {
