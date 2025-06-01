@@ -17,11 +17,11 @@ public class thoughtRouter : MonoBehaviour
 
     private void PutTick(BoxCheckpoint checkpoint)
     {
-        foreach (var sprite in GetComponentsInChildren<SpriteRenderer>(true))
+        foreach (var sprite in checkpoint.gameObject.GetComponentsInChildren<SpriteRenderer>(true))
         {
             if (sprite.CompareTag("boximage"))
             {
-                sprite.sortingOrder = -1;
+                sprite.sortingOrder = -2;
             }
             else if (sprite.CompareTag("tick"))
             {
