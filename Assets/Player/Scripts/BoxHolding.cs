@@ -106,7 +106,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Egg)
             isEggOnStack = false;
         var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)  
-                  + Player.Instance.rb.linearVelocity.x * 0.8f;
+                  + Player.Instance.rb.linearVelocity.x;
         var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
         rb.linearVelocity = new Vector2(velocityX, velocityY);
         
@@ -132,8 +132,8 @@ public class PlayerBoxHolder : MonoBehaviour
             var t = time / duration;
             var verticalSpeed = Mathf.Cos(t * Mathf.PI) * constVel + (end.y - start.y) / duration;
             rb.linearVelocity =  new Vector2(
-                velX + Player.Instance.rb.linearVelocityX,
-                Player.Instance.rb.linearVelocityY + verticalSpeed);
+                velX + Player.Instance.rb.linearVelocityX * (Player.Instance.AgainstWall ? 0 : 1),
+                Player.Instance.rb.linearVelocityY * (Player.Instance.AgainstWall == true ? 0 : 1) + verticalSpeed);
             time += Time.deltaTime;
             yield return null;
         }

@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && AgainstWall)
+        if ((collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Soft") ) && AgainstWall)
             AgainstWall = false;
         if (IsGroundedCollision(collision))
             IsJumping = true;

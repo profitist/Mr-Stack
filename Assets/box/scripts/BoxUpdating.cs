@@ -36,17 +36,20 @@ public class BoxUpdating : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!IsGrounded && collision.gameObject.CompareTag("Ground") && !isFinished && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
+        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.otherCollider.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
         {
             IsGrounded = true;
             rb.mass = float.MaxValue;
-            Invoke(nameof(DelayedBreakCheck), 0.5f);
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                Invoke(nameof(DelayedBreakCheck), 0.5f);
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Soft"))
             IsGrounded = false;
     }
 
@@ -59,7 +62,6 @@ public class BoxUpdating : MonoBehaviour
     {
         if (!isFinished)
         {
-            IsGrounded = true;
             if (boxType == BoxTypes.Egg)
             {
                 animator.SetBool("isBreaking", true);
