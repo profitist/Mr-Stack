@@ -27679,6 +27679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 524279336315629789, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_TagString
+      value: tick
+      objectReference: {fileID: 0}
     - target: {fileID: 1306989465851929939, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_FlipX
       value: 0

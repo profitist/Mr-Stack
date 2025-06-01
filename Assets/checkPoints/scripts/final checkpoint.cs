@@ -26,7 +26,7 @@ namespace checkPoints.scripts
             Instance.GetComponentInChildren<Animator>().enabled = false;
             thought = Player.Instance.GetComponentsInChildren<SpriteRenderer>().Where(x => x.gameObject.CompareTag("tick")).First().gameObject;
             thought.SetActive(false);
-            thought2 = GetComponentInChildren<thoughtRouter>().gameObject;
+            thought2 = GetComponentsInChildren<SpriteRenderer>().Where(x => x.gameObject.CompareTag("tick")).First().gameObject;
             thought2.SetActive(false);
             
         }
