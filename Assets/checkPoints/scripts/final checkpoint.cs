@@ -53,12 +53,12 @@ namespace checkPoints.scripts
         {
             var wait = new Stopwatch();
             wait = Stopwatch.StartNew();
-            while (wait.ElapsedMilliseconds < 1000)
+            while (wait.ElapsedMilliseconds < 2000)
             {
                 yield return null;
             }
             Final = true;
-            while (wait.ElapsedMilliseconds < 4000)
+            while (wait.ElapsedMilliseconds < 6000)
             {
                 Player.Instance.rb.linearVelocity = Vector2.right;
                 yield return null;
@@ -70,15 +70,21 @@ namespace checkPoints.scripts
             var rb = mainCamera.GetComponent<Rigidbody2D>();
             thought.SetActive(true);
             thought2.SetActive(true);
-            while (wait.ElapsedMilliseconds < 1000)
+            while (wait.ElapsedMilliseconds < 2000)
             {
                 yield return null;
             }
-            while (wait.ElapsedMilliseconds < 5000)
+            while (wait.ElapsedMilliseconds < 27000)
             {
                 rb.linearVelocityY = 0.7f;
                 yield return null;
             }
+            rb.linearVelocityY = 0;
+            while (wait.ElapsedMilliseconds < 32000)
+            {
+                yield return null;
+            }
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

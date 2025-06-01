@@ -369,6 +369,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: checkPoint (2) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4718092532486174218, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_Radius
+      value: 2.0355616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718092532486174218, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.1624727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718092532486174218, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7012763861789672305, guid: c784c0bf70e474c3291ec1b116059cca, type: 3}
       propertyPath: m_SortingOrder
       value: -2
@@ -2133,6 +2145,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6937820465135756246, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940949691575402423, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
+      propertyPath: boxType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8664540088746967232, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
