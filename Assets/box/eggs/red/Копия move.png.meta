@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: a386bfe658f00fc45b9d6a56f9d4af56
+guid: 4f3ed617f9f3148e89a639ef7157e9fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3836954968553550457
-    second: sky_0
+      213: -7818407450638235775
+    second: "\u041A\u043E\u043F\u0438\u044F move_0"
+  - first:
+      213: -3192264016842152736
+    second: "\u041A\u043E\u043F\u0438\u044F move_1"
+  - first:
+      213: 7513252516005348082
+    second: "\u041A\u043E\u043F\u0438\u044F move_2"
+  - first:
+      213: 2232158972446097642
+    second: "\u041A\u043E\u043F\u0438\u044F move_3"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,30 +118,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sky_0
+      name: "\u041A\u043E\u043F\u0438\u044F move_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 384
-        height: 216
+        x: 4
+        y: 3
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 972fdcff63a9f3530800000000000000
-      internalID: 3836954968553550457
+      spriteID: 187c07be8df6f7390800000000000000
+      internalID: -7818407450638235775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u041A\u043E\u043F\u0438\u044F move_1"
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4acde3accc2b3d0800000000000000
+      internalID: -3192264016842152736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u041A\u043E\u043F\u0438\u044F move_2"
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f20f4c3b5f644860800000000000000
+      internalID: 7513252516005348082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u041A\u043E\u043F\u0438\u044F move_3"
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0c9da42c83afe10800000000000000
+      internalID: 2232158972446097642
       vertices: []
       indices: 
       edges: []
@@ -160,8 +222,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      sky_0: 3836954968553550457
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
