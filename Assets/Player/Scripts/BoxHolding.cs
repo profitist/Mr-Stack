@@ -10,7 +10,7 @@ public class PlayerBoxHolder : MonoBehaviour
     [SerializeField] private AudioSource pickingSound;
     [SerializeField] private AudioSource removeSound;
     
-    private Stack<GameObject> boxes;
+    public Stack<GameObject> boxes { get; private set;}
     private GameObject nearestBox;
     public int heavyBoxesCount;
     private bool isEggOnStack;
