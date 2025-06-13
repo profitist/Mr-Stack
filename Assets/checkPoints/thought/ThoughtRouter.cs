@@ -25,7 +25,7 @@ public class thoughtRouter : MonoBehaviour
             }
             else if (sprite.CompareTag("tick"))
             {
-                sprite.sortingOrder = 1;
+                sprite.sortingOrder = 2;
             }
         }
     }

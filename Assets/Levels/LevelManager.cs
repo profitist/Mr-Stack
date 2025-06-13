@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using menu;
 using UnityEngine;
@@ -37,12 +38,8 @@ public class LevelManager : MonoBehaviour
         placeCounter++;
         if (placeCounter >= items.Length)
         {
-            GameInput.Instance.playerInputActions.Disable();
             LevelMenu.nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
-            if (SceneManager.GetActiveScene().buildIndex == 8)
-                SceneManager.LoadScene("mainMenu");
-            else
-                SceneManager.LoadScene("levelMenu");
+            StartCoroutine(WaitBeforeTransition());
         }
     }
     
@@ -51,4 +48,12 @@ public class LevelManager : MonoBehaviour
         GameInput.Instance.playerInputActions.Disable();
         GameInput.IsDead = true;
     }
+
+    private IEnumerator WaitBeforeTransition()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("levelMenu");
+        GameInput.Instance.playerInputActions.Disable();
+        yield return null;
+    } 
 }
