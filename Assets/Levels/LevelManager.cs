@@ -4,6 +4,7 @@ using menu;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Diagnostics;
+using Levels;
 using Debug = UnityEngine.Debug;
 
 public class LevelManager : MonoBehaviour
@@ -21,6 +22,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
+        SaveManager.SaveProgress(SceneManager.GetActiveScene().name);
         BoxCheckpoint.OnCheckpointFilling += ActionOnPlacing;
         BoxUpdating.OnEggCrushing += ActionOnEggCrushing;
     }
