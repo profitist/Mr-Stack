@@ -62,6 +62,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tab"",
+                    ""type"": ""Button"",
+                    ""id"": ""984b79f6-c580-4eee-8bde-e1e43b6f6fe5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +139,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""PutBox"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f1c946d-c7cf-4bb4-b1a8-3e1ef7135f72"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -142,6 +162,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_GrabBox = m_Player.FindAction("GrabBox", throwIfNotFound: true);
         m_Player_PutBox = m_Player.FindAction("PutBox", throwIfNotFound: true);
+        m_Player_Tab = m_Player.FindAction("Tab", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -212,6 +233,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_GrabBox;
     private readonly InputAction m_Player_PutBox;
+    private readonly InputAction m_Player_Tab;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -220,6 +242,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @GrabBox => m_Wrapper.m_Player_GrabBox;
         public InputAction @PutBox => m_Wrapper.m_Player_PutBox;
+        public InputAction @Tab => m_Wrapper.m_Player_Tab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,6 +264,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PutBox.started += instance.OnPutBox;
             @PutBox.performed += instance.OnPutBox;
             @PutBox.canceled += instance.OnPutBox;
+            @Tab.started += instance.OnTab;
+            @Tab.performed += instance.OnTab;
+            @Tab.canceled += instance.OnTab;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -257,6 +283,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PutBox.started -= instance.OnPutBox;
             @PutBox.performed -= instance.OnPutBox;
             @PutBox.canceled -= instance.OnPutBox;
+            @Tab.started -= instance.OnTab;
+            @Tab.performed -= instance.OnTab;
+            @Tab.canceled -= instance.OnTab;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -280,5 +309,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnGrabBox(InputAction.CallbackContext context);
         void OnPutBox(InputAction.CallbackContext context);
+        void OnTab(InputAction.CallbackContext context);
     }
 }
