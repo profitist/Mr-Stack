@@ -1,5 +1,4 @@
 ﻿using System;
-using Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,7 +32,6 @@ namespace menu
             pauseMenu.enabled = false;
             Time.timeScale = 1;
             SceneManager.LoadScene("mainMenu");
-            SaveManager.SaveProgress(SceneManager.GetActiveScene().name);
         }
 
         public void RestartGame()
