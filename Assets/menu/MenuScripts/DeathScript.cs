@@ -12,7 +12,6 @@ public class DeathScript : MonoBehaviour
     
     private void Update()
     {
-        
         if (GameInput.IsDead)
         {
             deathMenu.enabled = true;
