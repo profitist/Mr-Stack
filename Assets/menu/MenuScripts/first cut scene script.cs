@@ -23,6 +23,7 @@ namespace menu
 
         private void Awake()
         {
+            Cursor.visible = false;
             dino = gameObject;
             box.SetActive(false);
             text = canvas.GetComponentInChildren<TMP_Text>();

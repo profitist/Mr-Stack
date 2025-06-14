@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
         items = FindObjectsByType<BoxCheckpoint>(FindObjectsSortMode.None);
         length = items.Length;
         Debug.Log(items.Length);
+        Cursor.visible = false;
     }
 
     private void OnEnable()

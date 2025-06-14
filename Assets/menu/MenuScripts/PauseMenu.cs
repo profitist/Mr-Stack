@@ -22,13 +22,9 @@ namespace menu
                 {
                     GameInput.Instance.playerInputActions.Disable();
                     Time.timeScale = 0;
+                    Cursor.visible = true;
+                    pauseMenu.enabled = true;
                 }
-                else
-                {
-                    GameInput.Instance.playerInputActions.Enable();
-                    Time.timeScale = 1;
-                }
-                pauseMenu.enabled = !pauseMenu.enabled;
             }   
         }
 
@@ -42,6 +38,7 @@ namespace menu
 
         public void RestartGame()
         {
+            Cursor.visible = false;
             pauseMenu.enabled = false;
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -49,6 +46,7 @@ namespace menu
 
         public void ContinueGame()
         {
+            Cursor.visible = false;
             GameInput.Instance.playerInputActions.Enable();
             pauseMenu.enabled = false;
             Time.timeScale = 1;

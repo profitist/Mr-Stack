@@ -6,6 +6,11 @@ using TMPro;
 using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
+    private void Awake()
+    {
+        Cursor.visible = true;
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(SaveManager.LoadProgress().currentLevelName);
