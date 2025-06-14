@@ -12,12 +12,18 @@ public class LevelManager : MonoBehaviour
     [SerializeField] 
     private AudioSource successSound;
     public BoxCheckpoint[] items{get; private set;}
+    public int length {get; private set;}
     public int placeCounter {get; private set;}
+
+    public LevelManager Instance {get; private set;}
     
     void Awake()
     {
+        Instance = gameObject.GetComponent<LevelManager>();
         items = FindObjectsByType<BoxCheckpoint>(FindObjectsSortMode.None);
+        length = items.Length;
         Debug.Log(items.Length);
+        Cursor.visible = false;
     }
 
     private void OnEnable()

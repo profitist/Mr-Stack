@@ -11,6 +11,8 @@ public class GameInput : MonoBehaviour
     public bool GrabbingBox { get; private set; }
     public bool PuttingBox { get; private set; }
     public bool Jumping { get; private set; }
+    
+    public bool Tab {get; private set;}
 
     public static bool IsDead = false;
 
@@ -32,6 +34,7 @@ public class GameInput : MonoBehaviour
         Jumping = playerInputActions.Player.Jump.IsPressed();
         GrabbingBox = playerInputActions.Player.GrabBox.IsPressed();
         PuttingBox = playerInputActions.Player.PutBox.IsPressed();
+        Tab = playerInputActions.Player.Tab.IsPressed();
     }
 }
    

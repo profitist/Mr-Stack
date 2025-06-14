@@ -12,7 +12,6 @@ public class DeathScript : MonoBehaviour
     
     private void Update()
     {
-        
         if (GameInput.IsDead)
         {
             deathMenu.enabled = true;
@@ -31,6 +30,7 @@ public class DeathScript : MonoBehaviour
 
     public void RestartGame()
     {
+        Cursor.visible = false;
         deathMenu.enabled = false;
         Time.timeScale = 1;
         GameInput.Instance.playerInputActions.Enable();
