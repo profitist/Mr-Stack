@@ -1,5 +1,4 @@
 using System;
-using Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -13,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SaveManager.LoadProgress().currentLevelName);
+        SceneManager.LoadScene("tutorial");
     }
     
     public void OpenSettings()
