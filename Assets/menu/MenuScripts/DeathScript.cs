@@ -14,6 +14,7 @@ public class DeathScript : MonoBehaviour
     {
         if (GameInput.IsDead)
         {
+            GameInput.Instance.playerInputActions.Disable();
             deathMenu.enabled = true;
             Time.timeScale = 0;
         }
@@ -36,6 +37,7 @@ public class DeathScript : MonoBehaviour
         GameInput.Instance.playerInputActions.Enable();
         GameInput.IsDead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameInput.Instance.playerInputActions.Enable();
     }
     
     public void OpenSettings()

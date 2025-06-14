@@ -21,10 +21,16 @@ public class PlayerBoxHolder : MonoBehaviour
     public List<GameObject> AllBoxes { get; private set;}
     public Transform holdPoint;
     public static PlayerBoxHolder Instance { get; private set; }
+    private GameObject[] dots;
+    [SerializeField] private GameObject dotPref;
+    private int dotsCount = 15;
+    private float dotSpacing = 0.07f;
+
     
     
     void Awake()
     {
+        dots = new GameObject[dotsCount];
         AllBoxes = new List<GameObject>();
         foreach (var collider in FindObjectsByType<GameObject>(default))
         {
@@ -41,7 +47,7 @@ public class PlayerBoxHolder : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (wait.IsRunning && wait.ElapsedMilliseconds >= 500)
+        if (wait.IsRunning && wait.ElapsedMilliseconds >= 700)
             wait = new Stopwatch();
         if (GameInput.Instance.GrabbingBox && !wait.IsRunning && Player.Instance.rb.linearVelocityY < 0.1f)
         {
@@ -50,6 +56,30 @@ public class PlayerBoxHolder : MonoBehaviour
         }
         if (GameInput.Instance.PuttingBox && boxes.Count > 0 && !wait.IsRunning)
             RemoveBox(boxes.Pop());
+        if (ActiveBoxes.Count > 0)
+        {
+            for (var i = 0; i < dotsCount; i++)
+            {
+                float time = i * dotSpacing;
+                var velocityX = 5 * (Player.Instance.facingDirection == FacingDirection.Right ? 1 : -1)
+                                + Player.Instance.rb.linearVelocity.x;
+                var velocityY = 6 + (Player.Instance.rb.linearVelocityY > 1e-2 ? Player.Instance.rb.linearVelocityY : 0);
+                Vector2 dotPos = new Vector2(
+                    holdPoint.transform.position.x + velocityX * time,
+                    holdPoint.transform.position.y + ActiveBoxes.Count - 1 + velocityY * time +
+                    Physics2D.gravity.y * time * time);
+                
+                if (dots[i] == null)
+                    dots[i] = Instantiate(dotPref, dotPos, Quaternion.identity);
+                else
+                    dots[i].transform.position = dotPos;
+            }
+        }
+        else
+            foreach (var dot in dots)
+            {
+                Destroy(dot);
+            }
     }
     
     private void PickUpBox()

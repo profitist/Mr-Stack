@@ -21,6 +21,11 @@ public class MainMenuManager : MonoBehaviour
         SettingMenu.levelId = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene("settings");
     }
+    
+    public void ChooseLevel()
+    {
+        SceneManager.LoadScene("levels");
+    }
 
     public void ExitGame()
     {
