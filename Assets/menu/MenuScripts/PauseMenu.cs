@@ -24,6 +24,13 @@ namespace menu
                     Cursor.visible = true;
                     pauseMenu.enabled = true;
                 }
+                else
+                {
+                    GameInput.Instance.playerInputActions.Enable();
+                    Time.timeScale = 1;
+                    Cursor.visible = false;
+                    pauseMenu.enabled = false;
+                }
             }   
         }
 

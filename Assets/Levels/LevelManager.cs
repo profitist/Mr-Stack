@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Threading;
 using menu;
@@ -23,6 +24,16 @@ public class LevelManager : MonoBehaviour
         length = items.Length;
         Debug.Log(items.Length);
         Cursor.visible = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if (GameInput.Instance.Restart)
+        {
+            GameInput.Instance.playerInputActions.Disable();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameInput.Instance.playerInputActions.Enable();
+        }
     }
 
     private void OnEnable()

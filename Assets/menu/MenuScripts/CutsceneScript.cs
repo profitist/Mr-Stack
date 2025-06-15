@@ -20,7 +20,16 @@ namespace menu
         private Rigidbody2D dinoRb;
         [SerializeField] Transform holdPoint;
         [SerializeField] Animator animator;
-        
+        [SerializeField] AudioSource audio;
+        [SerializeField] private AudioSource audio2;
+
+        private void FixedUpdate()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
 
         private void Awake()
         {
@@ -59,6 +68,7 @@ namespace menu
                 timer += Time.deltaTime;
                 yield return null;
             }
+            StartCoroutine(PlayWalkingSound());
             animator.SetBool(IsRunning, true);
             dinoRb.linearVelocityX = 5;
             yield return null;
@@ -72,7 +82,18 @@ namespace menu
             }
             SceneManager.LoadScene("mainMenu");
         }
-        
+
+        private IEnumerator PlayWalkingSound()
+        {
+            audio.Play();
+            yield break;
+        }
+
+        private IEnumerator PlayJumpSound()
+        {
+            audio2.Play();
+            yield break;
+        }
         private IEnumerator TypeText()
         {
             var fullText = "DeliveRex";
@@ -93,6 +114,7 @@ namespace menu
             rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             var cl = box.GetComponent<BoxCollider2D>();
             cl.enabled = false;
+            StartCoroutine(PlayJumpSound());
             var velX = (end.x - start.x) / duration;
             if (rb) rb.bodyType = RigidbodyType2D.Kinematic;
             while (time < duration)

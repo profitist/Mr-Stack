@@ -6,6 +6,7 @@ using menu;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using Debug = System.Diagnostics.Debug;
 
 namespace checkPoints.scripts
@@ -17,9 +18,11 @@ namespace checkPoints.scripts
         private Rigidbody2D Text;
         [SerializeField] LevelManager levelManager;
         private GameObject thought;
+        [SerializeField] GameObject box;
         public static bool Final { get; private set; }
         private void Awake()
         {
+            box.SetActive(false);
             Instance = this;
             Instance.GetComponentInChildren<SpriteRenderer>().enabled = false;
             Instance.GetComponentInChildren<Animator>().enabled = false;
@@ -42,6 +45,7 @@ namespace checkPoints.scripts
             {
                 Instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
                 Instance.GetComponentInChildren<Animator>().enabled = true;
+                box.SetActive(true);
             }
         }
 

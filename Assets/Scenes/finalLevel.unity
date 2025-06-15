@@ -26165,6 +26165,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae7c5457d1580ed42acc9b3d067b511a, type: 3}
+--- !u!1 &1014028048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5212298838393895690, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+  m_PrefabInstance: {fileID: 448627996}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1015522565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28241,6 +28246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 630091372}
   levelManager: {fileID: 249550977}
+  box: {fileID: 1014028048}
 --- !u!1 &1997754128
 GameObject:
   m_ObjectHideFlags: 0
