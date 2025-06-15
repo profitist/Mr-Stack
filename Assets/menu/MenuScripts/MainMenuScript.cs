@@ -19,8 +19,7 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("levels");
     }
-
-
+    
     public void OpenSettings()
     {
         SettingMenu.levelId = SceneManager.GetActiveScene().buildIndex;
