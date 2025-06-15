@@ -127,17 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6359674818183448055, guid: fa9bada0a9beb5241a52428eebab9e01, type: 3}
-      propertyPath: m_text
-      value: 'A,D - move
-
-        Space - jump
-
-        E - pick up
-
-        F -
-        throw'
-      objectReference: {fileID: 0}
     - target: {fileID: 6644747235880048320, guid: fa9bada0a9beb5241a52428eebab9e01, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7001,6 +6990,10 @@ PrefabInstance:
     - target: {fileID: 3468884595639788893, guid: ae7c5457d1580ed42acc9b3d067b511a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636629587482001485, guid: ae7c5457d1580ed42acc9b3d067b511a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8668737973063713671, guid: ae7c5457d1580ed42acc9b3d067b511a, type: 3}
       propertyPath: m_Name
