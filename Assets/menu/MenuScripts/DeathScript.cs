@@ -14,6 +14,7 @@ public class DeathScript : MonoBehaviour
     {
         if (GameInput.IsDead)
         {
+            Cursor.visible = true;
             GameInput.Instance.playerInputActions.Disable();
             deathMenu.enabled = true;
             Time.timeScale = 0;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BoxUpdating : MonoBehaviour
 {
-    public readonly int boxId;
+    private static readonly int IsBreaking = Animator.StringToHash("isBreaking");
     public BoxTypes boxType;
     public bool IsGrounded { get; private set; } 
     public Rigidbody2D rb { get; private set; }
@@ -23,14 +23,7 @@ public class BoxUpdating : MonoBehaviour
         if (boxType == BoxTypes.Egg)
             animator = GetComponent<Animator>();
     }
-
-    public void FixedUpdate()
-    {
-        
-    }
     
-    
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
@@ -61,7 +54,7 @@ public class BoxUpdating : MonoBehaviour
         {
             if (boxType == BoxTypes.Egg)
             {
-                animator.SetBool("isBreaking", true);
+                animator.SetBool(IsBreaking, true);
                 Invoke(nameof(BreakEgg), 1f);
             }
         }
