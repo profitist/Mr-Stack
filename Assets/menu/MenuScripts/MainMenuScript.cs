@@ -12,8 +12,14 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        SceneManager.LoadScene("tutorial");
+    }
+    
+    public void LevelSelect()
+    {
         SceneManager.LoadScene("levels");
     }
+
 
     public void OpenSettings()
     {
