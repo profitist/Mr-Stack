@@ -7856,7 +7856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "A,D - \u0434\u0432\u0438\u0433\u0430\u0442\u044C\u0441\u044F"
+      value: A.D  - move
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset
@@ -10096,7 +10096,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "\u0410 \u0435\u0441\u043B\u0438 \u0434\u0432\u0435 \u0441\u0440\u0430\u0437\u0443?"
+      value: 'Take this
+
+        two boxe'
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset
@@ -11720,8 +11722,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "\u0437\u0430\u0431\u0443\u0434\u0435\u0448\u044C \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
-        \n\u0437\u0430\u0436\u043C\u0438 Tab"
+      value: 'Press Tab
+
+        to see controls'
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset
@@ -12498,8 +12501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "\u043A\u0438\u043D\u044C \u0432 \u043D\u0435\u0433\u043E \u043A\u043E\u0440\u043E\u0431\u043A\u0443\n\u0438
-        \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u0441\u044F"
+      value: give him your box
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset
@@ -12873,6 +12875,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6359674818183448055, guid: fa9bada0a9beb5241a52428eebab9e01, type: 3}
+      propertyPath: m_text
+      value: 'A,D - move
+
+        Space - jump
+
+        E - pick up
+
+        F -
+        throw'
+      objectReference: {fileID: 0}
     - target: {fileID: 6644747235880048320, guid: fa9bada0a9beb5241a52428eebab9e01, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13013,6 +13026,12 @@ PrefabInstance:
     - target: {fileID: 1477486193952473789, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_text
+      value: 'E - Pick up
+
+        F - Throw'
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset

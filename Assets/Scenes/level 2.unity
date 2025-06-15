@@ -6635,9 +6635,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "\u041C\u043D\u0435 \u043A\u0430\u0436\u0435\u0442\u0441\u044F...\n\u044D\u0442\u043E\u0442
-        \u043A\u0443\u0441\u043E\u043A \u043C\u044F\u0441\u0430 \u043E\u0447\u0435\u043D\u044C
-        \u0442\u044F\u0436\u0451\u043B\u044B\u0439"
+      value: 'It seems...
+
+        This meat is very heavy'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 462eee29c89bb81488f063f3d9fbb7e0, type: 2}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5038540658080383492, guid: 462eee29c89bb81488f063f3d9fbb7e0, type: 2}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5237864122680846491, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_LocalScale.x

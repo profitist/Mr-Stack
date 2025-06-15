@@ -1191,7 +1191,7 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.1264925, y: -0.47732592}
+  m_Offset: {x: -6.44736, y: -0.47732592}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1201,7 +1201,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 45.916466, y: 13.505967}
+  m_Size: {x: 26.768763, y: 13.505967}
   m_EdgeRadius: 0
 --- !u!4 &354045087
 Transform:
@@ -1471,8 +1471,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "\u0430 \u044D\u0442\u0430 \u0441\u043E\u043B\u043E\u043C\u0430\n\u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442
-        \u043E\u0447\u0435\u043D\u044C\n \u043C\u044F\u0433\u043A\u043E\u0439"
+      value: 'This hay looks
+
+        very soft '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 462eee29c89bb81488f063f3d9fbb7e0, type: 2}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5038540658080383492, guid: 462eee29c89bb81488f063f3d9fbb7e0, type: 2}
+    - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7936362854223028659, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_Name
@@ -1789,17 +1802,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_text
-      value: "\u041C\u043D\u0435 \u043A\u0430\u0436\u0435\u0442\u0441\u044F,\n\u044D\u0442\u043E
-        \u044F\u0439\u0446\u043E \u0434\u043E\u0432\u043E\u043B\u044C\u043D\u043E\n\u0445\u0440\u0443\u043F\u043A\u043E\u0435"
+      value: "This egg is \nvery fragile"
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: aee4297afd96f41a88a0ad9d0d043c91, type: 2}
+      objectReference: {fileID: 11400000, guid: 462eee29c89bb81488f063f3d9fbb7e0, type: 2}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -2854357558564255462, guid: aee4297afd96f41a88a0ad9d0d043c91, type: 2}
+      objectReference: {fileID: -5038540658080383492, guid: 462eee29c89bb81488f063f3d9fbb7e0, type: 2}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -14589,7 +14601,7 @@ Transform:
   m_GameObject: {fileID: 2090456643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.335376, y: 7.930004, z: -4.9974813}
+  m_LocalPosition: {x: -17.18, y: 7.9300003, z: -4.9974813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
