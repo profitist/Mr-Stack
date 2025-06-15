@@ -50,7 +50,7 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         if (wait.IsRunning && wait.ElapsedMilliseconds >= 700)
             wait = new Stopwatch();
-        if (GameInput.Instance.GrabbingBox && !wait.IsRunning && Player.Instance.rb.linearVelocityY < 0.1f)
+        if (GameInput.Instance.GrabbingBox && !wait.IsRunning)
         {
             PickUpBox();
             Debug.Log(boxes.Count);
@@ -87,7 +87,6 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         FindNearestBox();
         var box = nearestBox;
-        
         if (box is null)
             return;
         if (isEggOnStack)
@@ -103,7 +102,7 @@ public class PlayerBoxHolder : MonoBehaviour
             2 + boxes.Count);
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Ground"))
             return;
-        StartCoroutine(AnimatePickingBox(box, 2, ActiveBoxes.Count));
+        StartCoroutine(AnimatePickingBox(box, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
         Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0);
@@ -149,7 +148,6 @@ public class PlayerBoxHolder : MonoBehaviour
         rb.linearVelocity = new Vector2(velocityX, velocityY);
         removeSound.Play();
         ActiveBoxes.Remove(box);
-        rb.mass = 5;
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
         {
             var boxAnimator = box.GetComponentInChildren<Animator>();
@@ -157,7 +155,7 @@ public class PlayerBoxHolder : MonoBehaviour
         }
     }
 
-    private IEnumerator AnimatePickingBox(GameObject box, float arcHeight, float stackHeight)
+    private IEnumerator AnimatePickingBox(GameObject box, float stackHeight)
     {
         var duration = 0.5f;
         var time = 0f;
@@ -166,6 +164,8 @@ public class PlayerBoxHolder : MonoBehaviour
         var constVel = 10f;
         var rb = box.GetComponent<Rigidbody2D>();
         var cl = box.GetComponent<BoxCollider2D>();
+        box.GetComponent<BoxUpdating>().IsGrounded = false;
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         cl.enabled = false;
         var velX = (end.x - start.x) / duration;
         if (rb) rb.bodyType = RigidbodyType2D.Kinematic;
@@ -179,8 +179,8 @@ public class PlayerBoxHolder : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        rb.bodyType = RigidbodyType2D.Dynamic;
         cl.enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
         rb.simulated = false;
         box.transform.SetParent(holdPoint);
         box.transform.localPosition = new Vector3(0, stackHeight, 0);

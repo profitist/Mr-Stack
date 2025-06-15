@@ -6,7 +6,7 @@ public class BoxUpdating : MonoBehaviour
 {
     private static readonly int IsBreaking = Animator.StringToHash("isBreaking");
     public BoxTypes boxType;
-    public bool IsGrounded { get; private set; } 
+    public bool IsGrounded { get; set; } 
     public Rigidbody2D rb { get; private set; }
     private BoxCollider2D collider { get; set; }
     private Animator animator;
@@ -22,14 +22,27 @@ public class BoxUpdating : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         if (boxType == BoxTypes.Egg)
             animator = GetComponent<Animator>();
+        rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft") || collision.gameObject.CompareTag("Player")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
+        {
+            rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
+            IsGrounded = true;
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                Invoke(nameof(DelayedBreakCheck), 0.5f);
+            }
+        }
     }
     
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
+        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft") || collision.gameObject.CompareTag("Player")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
         {
+            rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
             IsGrounded = true;
-            rb.mass = float.MaxValue;
             if (collision.gameObject.CompareTag("Ground"))
             {
                 Invoke(nameof(DelayedBreakCheck), 0.5f);
@@ -37,12 +50,15 @@ public class BoxUpdating : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit(Collision other)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Soft"))
+        if ((other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Box") ||
+                           other.gameObject.CompareTag("Soft") || other.gameObject.CompareTag("Player")))
+        {
+            rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
             IsGrounded = false;
+        }
     }
-
     private void BreakEgg()
     {
         OnEggCrushing?.Invoke(this);
@@ -59,4 +75,5 @@ public class BoxUpdating : MonoBehaviour
             }
         }
     }
+
 }

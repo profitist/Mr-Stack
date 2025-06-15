@@ -30,7 +30,7 @@ public class LevelChosing : MonoBehaviour
     
     public void StartLevel5()
     {
-        SceneManager.LoadScene("newLevel_by_Ivan");
+        SceneManager.LoadScene("level 5");
     }
         
     public void StartLevel6()

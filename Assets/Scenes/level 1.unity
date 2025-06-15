@@ -7205,7 +7205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Mass
-      value: 1000000
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Interpolate
@@ -7954,7 +7954,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000000
+  m_Mass: 5
   m_LinearDamping: 0.5
   m_AngularDamping: 0.05
   m_GravityScale: 2

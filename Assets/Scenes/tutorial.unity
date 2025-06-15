@@ -748,7 +748,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -7917,7 +7917,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Mass
-      value: 1000000
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5212298838393895690, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Name
@@ -10098,7 +10106,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Take this
 
-        two boxe'
+        two boxes'
       objectReference: {fileID: 0}
     - target: {fileID: 3332828523303612487, guid: 4d290df8d05f1b34292149d7ca7090d8, type: 3}
       propertyPath: m_fontAsset
@@ -10480,7 +10488,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Mass
-      value: 1000000
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5212298838393895690, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Name
@@ -12703,7 +12719,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Mass
-      value: 1000000
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784567984442661969, guid: 9c8955e754765474583a864ba08956ff, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5212298838393895690, guid: 9c8955e754765474583a864ba08956ff, type: 3}
       propertyPath: m_Name
