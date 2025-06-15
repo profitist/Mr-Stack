@@ -12,20 +12,15 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("tutorial");
+        SceneManager.LoadScene("levels");
     }
-    
+
     public void OpenSettings()
     {
         SettingMenu.levelId = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene("settings");
     }
     
-    public void ChooseLevel()
-    {
-        SceneManager.LoadScene("levels");
-    }
-
     public void ExitGame()
     {
         Application.Quit();
