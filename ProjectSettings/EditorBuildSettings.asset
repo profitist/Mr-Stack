@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: "Assets/Scenes/\u0441utscene.unity"
     guid: 3b39e0ccd892eab408321f5b3e4559ff
   - enabled: 1
-    path: Assets/Scenes/mainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: da319296729cead40b9d0464fd258072
   - enabled: 1
     path: Assets/Scenes/tutorial.unity
@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/level 4.unity
     guid: 1b47ecb599d52464c99a5243eb198d55
   - enabled: 1
-    path: Assets/Scenes/level5.unity
+    path: Assets/Scenes/level 5.unity
     guid: 9af52d4db54424d37a8d4c53583b02d3
   - enabled: 1
     path: Assets/Scenes/finalLevel.unity
@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/levelMenu.unity
     guid: 6e4ac7fcc0195d84eb76c75eb437ad33
   - enabled: 1
-    path: Assets/Scenes/settings.unity
+    path: Assets/Scenes/Settings.unity
     guid: 69b7c862db349b54596a82af74d0bc9a
   - enabled: 1
     path: Assets/Scenes/levels.unity
