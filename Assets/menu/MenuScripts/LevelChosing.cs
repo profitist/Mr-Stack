@@ -40,6 +40,6 @@ public class LevelChosing : MonoBehaviour
 
     public void StartMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("mainMenu");
     }
 }

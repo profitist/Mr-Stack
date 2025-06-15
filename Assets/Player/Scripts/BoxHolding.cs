@@ -7,6 +7,7 @@ using Debug = UnityEngine.Debug;
 
 public class PlayerBoxHolder : MonoBehaviour
 {
+    private static readonly int IsSleeping = Animator.StringToHash("isSleeping");
     [SerializeField] private AudioSource pickingSound;
     [SerializeField] private AudioSource removeSound;
     
@@ -152,7 +153,7 @@ public class PlayerBoxHolder : MonoBehaviour
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Standart)
         {
             var boxAnimator = box.GetComponentInChildren<Animator>();
-            boxAnimator.SetBool("isSleeping", false);
+            boxAnimator.SetBool(IsSleeping, false);
         }
     }
 

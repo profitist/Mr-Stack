@@ -11,6 +11,7 @@ namespace menu
 {
     public class FirstCutSceneScript : MonoBehaviour
     {
+        private static readonly int IsRunning = Animator.StringToHash("isRunning");
         [SerializeField] private GameObject box;
         [SerializeField] BoxUpdating boxUpdating;
         [SerializeField] private Canvas canvas;
@@ -58,7 +59,7 @@ namespace menu
                 timer += Time.deltaTime;
                 yield return null;
             }
-            animator.SetBool("isRunning", true);
+            animator.SetBool(IsRunning, true);
             dinoRb.linearVelocityX = 5;
             yield return null;
             StartCoroutine(AnimatePickingBox(box, 0));
@@ -69,7 +70,7 @@ namespace menu
                 timer += Time.deltaTime;
                 yield return null;
             }
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("mainMenu");
         }
         
         private IEnumerator TypeText()

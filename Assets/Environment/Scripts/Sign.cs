@@ -8,7 +8,7 @@ public class Sign : MonoBehaviour
     public CapsuleCollider2D cl { get; private set; }
     public Canvas canvas { get; private set; }
     public SpriteRenderer textBG { get; private set; }
-    public bool playerNerby { get; private set; }
+    public bool playerNearby { get; private set; }
 
     private void Awake()
     {
@@ -21,19 +21,19 @@ public class Sign : MonoBehaviour
 
     private void FixedUpdate()
     {
-        canvas.enabled = playerNerby;
-        textBG.enabled = playerNerby;
+        canvas.enabled = playerNearby;
+        textBG.enabled = playerNearby;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            playerNerby = true;
+            playerNearby = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            playerNerby = false;
+            playerNearby = false;
     }
 }
