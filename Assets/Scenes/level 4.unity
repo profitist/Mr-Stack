@@ -8494,10 +8494,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3454964222098398196, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454964222098398196, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454964222098398196, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3454964222098398196, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4112764742973671276, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: m_Name
       value: GreenCheckPoint Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4813064888564532088, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3527056022417232336, guid: 7ec538296c94f4564acdcc84bfb44a59, type: 3}
     - target: {fileID: 5236312540558769777, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.80027294
@@ -8538,6 +8558,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5876990930099839113, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: boxType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8223471717014735032, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.18
@@ -8552,11 +8576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223471717014735032, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: 8223471717014735032, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 0.86
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
