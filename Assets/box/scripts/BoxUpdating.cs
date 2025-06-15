@@ -26,7 +26,7 @@ public class BoxUpdating : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft") || collision.gameObject.CompareTag("Player")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
+        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
             IsGrounded = true;
@@ -39,21 +39,17 @@ public class BoxUpdating : MonoBehaviour
     
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft") || collision.gameObject.CompareTag("Player")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
+        if (!IsGrounded && !isFinished && (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Soft")) && collision.contacts.Any(contact => Mathf.Abs(contact.normal.y - 1) < 1e-3))
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
             IsGrounded = true;
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                Invoke(nameof(DelayedBreakCheck), 0.5f);
-            }
         }
     }
 
     private void OnCollisionExit(Collision other)
     {
         if ((other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Box") ||
-                           other.gameObject.CompareTag("Soft") || other.gameObject.CompareTag("Player")))
+                           other.gameObject.CompareTag("Soft")))
         {
             rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
             IsGrounded = false;

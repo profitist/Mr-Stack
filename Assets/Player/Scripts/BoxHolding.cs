@@ -166,6 +166,7 @@ public class PlayerBoxHolder : MonoBehaviour
         var cl = box.GetComponent<BoxCollider2D>();
         box.GetComponent<BoxUpdating>().IsGrounded = false;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        Debug.Log("случилось");
         cl.enabled = false;
         var velX = (end.x - start.x) / duration;
         if (rb) rb.bodyType = RigidbodyType2D.Kinematic;

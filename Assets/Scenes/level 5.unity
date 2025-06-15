@@ -7736,6 +7736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stats
       objectReference: {fileID: 0}
+    - target: {fileID: 8144527169617862980, guid: 990cfb77e45e9ff46a4e433aa6106bc3, type: 3}
+      propertyPath: levelManager
+      value: 
+      objectReference: {fileID: 485124415}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7867,6 +7871,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83cc71fbec97446a190b874f063a27c1, type: 3}
+--- !u!114 &485124415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4802191762268391959, guid: c9ee540aa2285476d805d1a0142a0f0c, type: 3}
+  m_PrefabInstance: {fileID: 179913461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c79e90f1a621434cb67cc09e0135689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &572433618
 PrefabInstance:
   m_ObjectHideFlags: 0

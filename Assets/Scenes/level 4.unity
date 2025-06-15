@@ -462,6 +462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4245886322803741099, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6154177766882172599, guid: b22cc28247d0346f3a09b92a2022299e, type: 3}
       propertyPath: m_Name
       value: checkPoint (1)
@@ -8516,6 +8520,10 @@ PrefabInstance:
     - target: {fileID: 5876990930099839113, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: boxType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239485159364888688, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8223471717014735032, guid: f2d706cc8d9b64249b1898096847b90b, type: 3}
       propertyPath: m_LocalScale.x

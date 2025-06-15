@@ -90,6 +90,7 @@ namespace menu
             var end = holdPoint.position + new Vector3(0, stackHeight * 1, 0);
             var constVel = 10f;
             var rb = box.GetComponent<Rigidbody2D>();
+            rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             var cl = box.GetComponent<BoxCollider2D>();
             cl.enabled = false;
             var velX = (end.x - start.x) / duration;
