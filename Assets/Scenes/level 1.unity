@@ -649,6 +649,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 392741809515087134, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 392741809515087134, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 815060414772979426, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3260822657218703964, guid: 07a48ef4bda13444c900f4610c5cc236, type: 3}
       propertyPath: m_Name
       value: checkPoint (1)
