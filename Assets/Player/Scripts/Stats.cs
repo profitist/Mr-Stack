@@ -7,8 +7,8 @@ public class Stats : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
     [SerializeField] private LevelManager levelManager;
-    private static string initialText = "Доставок осталось: ";
-    private static string finalText = "Ура!";
+    private static string initialText = "Deliveries remaining: ";
+    private static string finalText = "Well done!";
     private void Awake()
     {
         text = GetComponentInChildren<TMP_Text>();
