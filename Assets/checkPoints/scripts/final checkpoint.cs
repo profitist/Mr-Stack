@@ -19,6 +19,7 @@ namespace checkPoints.scripts
         [SerializeField] LevelManager levelManager;
         private GameObject thought;
         [SerializeField] GameObject box;
+        [SerializeField] private GameObject sign;
         public static bool Final { get; private set; }
         private void Awake()
         {
@@ -28,6 +29,7 @@ namespace checkPoints.scripts
             Instance.GetComponentInChildren<Animator>().enabled = false;
             thought = GetComponentsInChildren<SpriteRenderer>().Where(x => x.gameObject.CompareTag("tick")).First().gameObject;
             thought.SetActive(false);
+            sign.SetActive(false);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -46,6 +48,7 @@ namespace checkPoints.scripts
                 Instance.GetComponentInChildren<SpriteRenderer>().enabled = true;
                 Instance.GetComponentInChildren<Animator>().enabled = true;
                 box.SetActive(true);
+                sign.SetActive(true);
             }
         }
 

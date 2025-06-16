@@ -68,7 +68,7 @@ namespace menu
                 timer += Time.deltaTime;
                 yield return null;
             }
-            StartCoroutine(PlayWalkingSound());
+            audio.Play();
             animator.SetBool(IsRunning, true);
             dinoRb.linearVelocityX = 5;
             yield return null;
@@ -82,18 +82,7 @@ namespace menu
             }
             SceneManager.LoadScene("mainMenu");
         }
-
-        private IEnumerator PlayWalkingSound()
-        {
-            audio.Play();
-            yield break;
-        }
-
-        private IEnumerator PlayJumpSound()
-        {
-            audio2.Play();
-            yield break;
-        }
+        
         private IEnumerator TypeText()
         {
             var fullText = "DeliveRex";
@@ -114,7 +103,7 @@ namespace menu
             rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             var cl = box.GetComponent<BoxCollider2D>();
             cl.enabled = false;
-            StartCoroutine(PlayJumpSound());
+            audio2.Play();
             var velX = (end.x - start.x) / duration;
             if (rb) rb.bodyType = RigidbodyType2D.Kinematic;
             while (time < duration)

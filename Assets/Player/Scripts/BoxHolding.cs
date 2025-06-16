@@ -105,7 +105,7 @@ public class PlayerBoxHolder : MonoBehaviour
         StartCoroutine(AnimatePickingBox(box, ActiveBoxes.Count));
         capsuleCollider.offset += new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y + 1);
-        Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0);
+        Player.Instance.rb.MovePosition(new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0));
         if (box.GetComponent<BoxUpdating>().boxType == BoxTypes.Heavy)
         {
             heavyBoxesCount++;
@@ -130,7 +130,7 @@ public class PlayerBoxHolder : MonoBehaviour
         var capsuleCollider = Player.Instance.GetComponent<CapsuleCollider2D>();
         capsuleCollider.offset -= new Vector2(0, 0.5f);
         capsuleCollider.size = new Vector2(capsuleCollider.size.x, capsuleCollider.size.y - 1);
-        Player.Instance.transform.position = new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0);
+        Player.Instance.rb.MovePosition(new Vector3(Player.Instance.transform.position.x, Player.Instance.transform.position.y +0.1f,0));
         var rb = box.GetComponent<Rigidbody2D>();
         if (rb) rb.simulated = true;
         box.transform.parent = null;
@@ -166,7 +166,6 @@ public class PlayerBoxHolder : MonoBehaviour
         var cl = box.GetComponent<BoxCollider2D>();
         box.GetComponent<BoxUpdating>().IsGrounded = false;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-        Debug.Log("случилось");
         cl.enabled = false;
         var velX = (end.x - start.x) / duration;
         if (rb) rb.bodyType = RigidbodyType2D.Kinematic;
