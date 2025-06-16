@@ -50,7 +50,7 @@ public class PlayerBoxHolder : MonoBehaviour
     {
         if (wait.IsRunning && wait.ElapsedMilliseconds >= 700)
             wait = new Stopwatch();
-        if (GameInput.Instance.GrabbingBox && !wait.IsRunning)
+        if (GameInput.Instance.GrabbingBox && !wait.IsRunning && Player.Instance.rb.linearVelocityY < 1e-2)
         {
             PickUpBox();
             Debug.Log(boxes.Count);

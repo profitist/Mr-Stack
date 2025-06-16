@@ -20,6 +20,7 @@ namespace checkPoints.scripts
         private GameObject thought;
         [SerializeField] GameObject box;
         [SerializeField] private GameObject sign;
+        [SerializeField] private Canvas canvas;
         public static bool Final { get; private set; }
         private void Awake()
         {
@@ -36,6 +37,7 @@ namespace checkPoints.scripts
         {
             if (other.CompareTag("Player"))
             {
+                canvas.gameObject.SetActive(false);
                 GameInput.Instance.playerInputActions.Disable();
                 StartCoroutine(AnimateFinal());
             }
